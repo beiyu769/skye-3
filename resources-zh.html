@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>资源中心 — Ecommerce 物流情报，& Benchmarks | Haulmax</title><meta name="description" content="Practical logistics guides for ecommerce operators: shrinkage cost analysis, cross-border customs, multi-channel 履约, peak season planning, returns management, drayage, and 第三方物流 evaluation."><style>
+  :root {
+    --red: #1A3A6F; --red-dark: #142952; --red-light: #3D6FB5;
+    --orange: #E87522; --orange-light: #F0A060; --navy: #1A3A6F;
+    --white: #FFFFFF; --bg: #FAFAFA; --bg-warm: #F0F4FA;
+    --text: #1A1A1A; --text-light: #555555; --text-muted: #999999;
+    --border: #E8E8E8; --shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter','Segoe UI',-apple-system,sans-serif; color:var(--text); background:var(--white); line-height:1.6; overflow-x:hidden; padding-top:70px; }
+  a { text-decoration:none; color:inherit; }
+  img { max-width:100%; height:auto; display:block; }
+  .container { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .section-label { display:inline-block; font-size:11px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:3px; margin-bottom:12px; background:var(--bg-warm); padding:4px 12px; border-radius:4px; }
+  .section-title { font-size:38px; font-weight:800; letter-spacing:-0.8px; line-height:1.15; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-light); max-width:640px; line-height:1.7; }
+  nav { position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); z-index:1000; padding:0 60px; height:70px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid transparent; transition:all 0.3s; }
+  nav.scrolled { border-bottom-color:var(--border); box-shadow:0 2px 20px rgba(0,0,0,0.06); }
+  .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text); transition:color 0.15s; padding:4px 0; }
+  .nav-links a:hover, .nav-links a.active { color:var(--red); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:-12px; background:white; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.12); min-width:220px; padding:10px 0; z-index:10; }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:13px; color:var(--text-light); white-space:nowrap; }
+  .nav-dropdown-menu a:hover { background:var(--bg-warm); color:var(--red); }
+  .nav-cta { background:var(--red); color:var(--white); padding:10px 24px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-cta:hover { background:var(--red-dark); transform:translateY(-1px); }
+
+  .nav-lang { border:1px solid var(--red); color:var(--red); padding:9px 16px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-lang:hover { background:var(--red); color:white; }
+  .page-hero { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; padding:100px 60px 80px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero h1 { font-size:48px; font-weight:800; letter-spacing:-1px; position:relative; margin-bottom:16px; }
+  .page-hero p { font-size:17px; opacity:0.9; max-width:680px; margin:0 auto; position:relative; line-height:1.7; }
+  .breadcrumb { font-size:13px; opacity:0.6; margin-bottom:16px; position:relative; }
+  .breadcrumb a { color:white; text-decoration:underline; }
+  .cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .cards-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .card { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.25s; }
+  .card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .card-3d { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.3s; }
+  .card-3d:hover { box-shadow:0 16px 48px rgba(0,0,0,0.08); transform:translateY(-6px); border-color:transparent; }
+  .icon-3d { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+  .icon-3d.red { background:linear-gradient(135deg,var(--red),var(--red-light)); color:white; }
+  .icon-3d.orange { background:linear-gradient(135deg,var(--orange),var(--orange-light)); color:white; }
+  .icon-3d.navy { background:linear-gradient(135deg,var(--navy),#1A3A6F); color:white; }
+  .icon-3d svg { width:24px; height:24px; }
+  .metric-row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .metric-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:36px 24px; text-align:center; transition:all 0.2s; }
+  .metric-card:hover { box-shadow:0 8px 32px rgba(0,0,0,0.05); transform:translateY(-2px); }
+  .metric-card .num { font-size:44px; font-weight:800; color:var(--red); letter-spacing:-1.5px; line-height:1; }
+  .metric-card .label { font-size:13px; color:var(--text-light); margin-top:10px; font-weight:600; }
+  .guarantee-card { background:white; border-radius:16px; padding:32px; text-align:center; border:1px solid var(--border); transition:all 0.25s; }
+  .guarantee-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:var(--red); }
+  .guarantee-card img { width:48px; height:48px; margin:0 auto 16px; }
+  .guarantee-card h3 { font-size:17px; font-weight:700; color:var(--red); margin-bottom:8px; }
+  .guarantee-card p { font-size:14px; color:var(--text-light); line-height:1.6; }
+  .btn { display:inline-block; padding:14px 32px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; transition:all 0.2s; text-align:center; }
+  .btn-red { background:var(--red); color:white; }
+  .btn-red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(26,58,111,0.3); }
+  .btn-orange { background:var(--orange); color:white; }
+  .btn-orange:hover { background:#C85E1A; transform:translateY(-1px); box-shadow:0 6px 20px rgba(232,117,34,0.3); }
+  .btn-white { background:white; color:var(--red); }
+  .btn-white:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,255,255,0.25); }
+  .btn-outline { border:2px solid var(--red); color:var(--red); background:transparent; }
+  .btn-outline:hover { background:var(--red); color:white; }
+  section { padding:88px 0; }
+  .section-dark { background:var(--navy); color:white; }
+  .section-dark .section-title { color:white; }
+  .section-dark .section-label { background:rgba(255,255,255,0.1); color:var(--orange); }
+  .section-gray { background:var(--bg); }
+  .section-warm { background:var(--bg-warm); }
+  .cta-banner { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; text-align:center; padding:88px 60px; position:relative; overflow:hidden; }
+  .cta-banner h2 { font-size:40px; font-weight:800; letter-spacing:-0.8px; position:relative; }
+  .cta-banner p { font-size:17px; opacity:0.9; margin:14px 0 32px; position:relative; }
+  .footer { background:#0D1F3C; color:rgba(255,255,255,0.7); padding:64px 60px 32px; }
+  .footer-grid { display:grid; grid-template-columns:1.3fr 1fr 1.2fr 1fr; gap:48px; max-width:1200px; margin:0 auto; align-items:flex-start; }
+.footer-logo-img { height:30px; width:auto; display:block; margin-bottom:16px; }
+  .footer h5 { color:white; font-size:15px; margin-bottom:16px; font-weight:700; }
+  .footer a { display:block; color:rgba(255,255,255,0.5); font-size:13px; margin-bottom:8px; line-height:1.5; transition:color 0.2s; }
+  .footer a:hover { color:var(--orange); }
+  .footer-col p { font-size:13px; line-height:1.7; margin-bottom:12px; }
+  .social-links { display:flex; gap:10px; }
+.footer-link-main { display:block; font-size:15px; font-weight:700; color:white; margin-bottom:10px; transition:color 0.2s; text-decoration:none; }
+.footer-link-main:hover { color:var(--orange); }
+.footer-link-sub { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,0.5); margin-bottom:6px; margin-left:0; transition:color 0.2s; text-decoration:none; }
+.footer-link-sub:hover { color:var(--orange); }
+
+  .social-btn { width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; transition:all 0.2s; color:rgba(255,255,255,0.5); }
+  .social-btn:hover { border-color:var(--orange); color:var(--orange); }
+  .footer-bottom { padding-top:32px; margin-top:32px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; opacity:0.5; display:flex; justify-content:space-between; max-width:1200px; margin-left:auto; margin-right:auto; }
+  .text-center { text-align:center; }
+  .mt-2 { margin-top:32px; }
+  .mt-3 { margin-top:48px; }
+  .highlight { color:var(--red); font-weight:700; }
+  .heavy-tag { display:inline-block; background:var(--orange); color:white; padding:2px 10px; border-radius:4px; font-size:11px; font-weight:700; margin-left:8px; vertical-align:middle; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:all 0.6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .partner-strip { background:white; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:32px 0; text-align:center; overflow:hidden; }
+  .partner-label { font-size:12px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; }
+  .partner-logos { display:flex; gap:36px; justify-content:center; align-items:center; flex-wrap:wrap; }
+  .partner-logo { font-weight:800; font-size:20px; color:var(--text-light); opacity:0.5; transition:opacity 0.3s; }
+  .partner-logo:hover { opacity:1; }
+  .testimonial-slide { display:none; }
+  .testimonial-slide.active { display:block; }
+  .testimonial-stars { color:var(--orange); font-size:16px; margin-bottom:12px; }
+  .testimonial-quote { font-size:17px; line-height:1.8; font-style:italic; color:var(--text); margin-bottom:16px; }
+  .testimonial-author { font-weight:700; color:var(--red); font-size:15px; }
+  .testimonial-role { font-size:13px; color:var(--text-muted); }
+  .tab-bar { display:flex; gap:4px; margin-bottom:32px; background:var(--bg-warm); border-radius:14px; padding:6px; }
+  .tab-btn { flex:1; padding:14px 20px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; border:none; background:transparent; color:var(--text-light); transition:all 0.25s; text-align:center; }
+  .tab-btn.active { background:var(--red); color:white; box-shadow:0 4px 14px rgba(26,58,111,0.25); }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
+  .faq-item { border-bottom:1px solid var(--border); padding:20px 0; cursor:pointer; }
+  .faq-q { font-weight:700; font-size:16px; display:flex; justify-content:space-between; align-items:center; }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease,padding-top 0.35s; color:var(--text-light); line-height:1.7; font-size:15px; }
+  .faq-item.open .faq-a { max-height:300px; padding-top:12px; }
+  .faq-q .indicator { width:28px; height:28px; border-radius:50%; background:var(--bg-warm); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--red); flex-shrink:0; transition:transform 0.3s; }
+  .faq-item.open .faq-q .indicator { transform:rotate(45deg); background:var(--red); color:white; }
+  .form-row { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  .form-group { margin-bottom:16px; }
+  .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--text); }
+  .form-group input,.form-group select,.form-group textarea { width:100%; padding:12px 16px; border:1px solid var(--border); border-radius:8px; font-size:14px; color:var(--text); transition:border-color 0.2s; background:white; font-family:inherit; }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus { outline:none; border-color:var(--red); box-shadow:0 0 0 3px rgba(26,58,111,0.08); }
+  @media(max-width:992px) { .cards-2,.cards-3 { grid-template-columns:1fr; } .cards-4 { grid-template-columns:repeat(2,1fr); } .metric-row { grid-template-columns:repeat(2,1fr); } .footer-grid { grid-template-columns:repeat(2,1fr); } nav { padding:0 24px; } .nav-links { gap:16px; } .section-title { font-size:28px; } }
+  
+.pagination { display:flex; justify-content:center; gap:8px; padding:48px 0 20px; }
+.page-btn { display:inline-flex; align-items:center; justify-content:center; min-width:40px; height:40px; padding:0 14px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-weight:500; color:var(--text); text-decoration:none; transition:all 0.2s; background:white; }
+.page-btn:hover { border-color:var(--red); color:var(--red); }
+.page-btn.active { background:var(--red); color:white; border-color:var(--red); }
+.page-btn.disabled { opacity:0.35; pointer-events:none; }
+.subscribe-form { display:flex; gap:12px; max-width:480px; margin:24px auto 0; position:relative; z-index:1; }
+.subscribe-input { flex:1; padding:14px 18px; border:none; border-radius:10px; font-size:15px; outline:none; background:rgba(255,255,255,0.95); color:var(--text); }
+.subscribe-input::placeholder { color:var(--text-muted); }
+.subscribe-form .btn { white-space:nowrap; }
+@media(max-width:640px) { .subscribe-form { flex-direction:column; max-width:100%; } }
+  @media(max-width:640px) { .cards-4,.metric-row { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr; } .page-hero h1 { font-size:32px; } }
+</style><style>.page-hero::before{content:"";position:absolute;inset:0;background:url("https://haulmax.com/wp-content/uploads/2024/11/HAULMAX-1024x724.jpg") center/cover;opacity:0.12;}.process-flow{display:flex;gap:0;margin:32px 0;overflow-x:auto;}.process-step{flex:1;min-width:180px;text-align:center;padding:24px 16px;position:relative;}.process-step::after{content:"→";position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--orange);font-weight:700;}.process-step:last-child::after{display:none;}.process-icon{width:64px;height:64px;background:var(--red);border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;}.process-step h4{font-size:16px;margin-bottom:8px;}.process-step p{font-size:13px;color:var(--text-light);}.compare-table{width:100%;border-collapse:collapse;margin:24px 0;}.compare-table th{background:var(--red);color:white;padding:14px 16px;text-align:left;font-size:14px;}.compare-table td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:14px;}.compare-table tr:nth-child(even){background:#FAFAFA;}.compare-table .check{color:green;font-weight:700;}.compare-table .cross{color:var(--text-muted);}details{margin-bottom:12px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}details summary{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;background:#FAFAFA;list-style:none;}details summary::after{content:"+";float:right;font-size:20px;color:var(--red);}details[open] summary::after{content:"−";}details .detail-body{padding:16px 20px;font-size:14px;color:var(--text-light);line-height:1.7;}</style></head><body><nav><a href="index-zh.html" class="nav-logo"><img src="logo.webp" alt="Haulmax" style="height:36px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index-zh.html" class="">首页</a></li><li class="nav-dropdown"><a href="services-import-zh.html" class="">服务</a><div class="nav-dropdown-menu"><a href="services-import-zh.html">进口服务</a><a href="services-fulfillment-zh.html">一件代发</a><a href="services-last-mile-zh.html">尾程配送</a></div></li><li class="nav-dropdown"><a href="tech-integrations-zh.html" class="">工具与集成</a><div class="nav-dropdown-menu"><a href="tech-integrations-zh.html">平台集成</a><a href="tech-rate-calculator-zh.html">费率计算</a><a href="tech-tracker-zh.html">物流追踪</a><a href="tech-dim-calculator-zh.html">DIM 计算器</a><a href="tech-shopify-zh.html">Shopify</a><a href="tech-woocommerce-zh.html">WooCommerce</a></div></li><li><a href="about-zh.html" class="">关于我们</a></li><li><a href="resources-zh.html" class="active">资源中心</a></li><li><a href="careers-zh.html" class="">加入我们</a></li><li><a href="contact-zh.html" class="">联系我们</a></li></ul>
+<a href="resources.html" class="nav-lang">EN</a>
+<a href="contact-zh.html" class="nav-cta">获取报价</a></nav><div class="page-hero"><div class="breadcrumb"><a href="index-zh.html">首页</a> / 资源与洞察</div><h1>让知识推动你的业务<span style="color:var(--orange);">向前</span></h1><p>来自曾与你处境相同的运营者的指南、基准与洞察。没有废话，没有推销，只有实用的物流情报，帮电商品牌不再因糟糕的履约而亏钱。</p></div><section class="section-gray"><div class="container"><div class="section-label">精选文章</div><h2 class="section-title">物流情报，<span style="color:var(--red);">专为电商运营者打造</span></h2><div class="cards-3" style="margin-top:32px;"><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">1</div><h3>“行业标准”损耗的隐性成本</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">第三方物流行业把 1-2% 的库存损失视为可接受。本文算清了这对月发 1 万单的企业究竟意味着什么——以及零损耗履约如何改变你整个业务的单位经济模型。</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">2</div><h3>美国清关实务指南：跨境卖家必读</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">梳理 FDA、FCC、CPSC 等监管要求，教你如何规划发货结构，避免一个集装箱就吃掉全部利润的滞港费与滞箱费。</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">3</div><h3>多渠道履约，告别多渠道混乱</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">如何用单一库存池管理 Amazon FBA、Walmart WFS 与 DTC。统一 commerce 的架构之道——以及为何按渠道拆分 SKU 是个拖累库存周转的陷阱。</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">4</div><h3>旺季作战手册：七月备战 Q4</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">人员、产能规划、承运商分配与应急预案。夏天做的决策，决定了 Q4 是你最好的季度，还是最糟的客服危机。</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">5</div><h3>把退货管理变成竞争优势</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">处理、分级、翻新与清货策略。领先品牌如何把逆向物流从成本中心变成回收渠道——以及为何退货政策本质上是一个营销决策。</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">6</div><h3>拖运解密：港口到仓库之间发生了什么</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">跨境物流中最被忽视的一环。为何一个糟糕的拖运伙伴比海运费本身更烧钱——以及如何超越“每英里单价”来评估港口到仓库的合作伙伴。</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">分享到 Facebook</a></div></div></div></div></section>
+<div class="pagination">
+  <a href="#" class="page-btn disabled">上一页</a>
+  <a href="#" class="page-btn active">1</a>
+  <a href="#" class="page-btn">2</a>
+  <a href="#" class="page-btn">3</a>
+  <a href="#" class="page-btn">下一页</a>
+</div>
+<section class="section-warm"><div class="container"><div class="section-label">工具与基准</div><h2 class="section-title">数据驱动的<span style="color:var(--red);">决策</span></h2><div class="cards-3" style="margin-top:32px;"><div class="card fade-in"><h3>履约成本计算器</h3><p style="color:var(--text-light);font-size:14px;">根据你的真实订单画像，估算含收货、仓储、拣打包、运输与退货的总落地履约成本。多数品牌会低估 20-30% 的总成本。</p></div><div class="card fade-in"><h3>第三方物流评估打分表</h3><p style="color:var(--text-light);font-size:14px;">一套结构化框架，从技术、可扩展性、透明度、财务问责等 15 个维度评估物流伙伴。别只凭价格选第三方物流。</p></div><div class="card fade-in"><h3>承运商绩效基准</h3><p style="color:var(--text-light);font-size:14px;">美国末端承运商季度绩效分析：准时率、破损率、单件成本趋势与区域可靠性评分。数据驱动的路由决策，从这里开始。</p></div></div></div></section><section class="section-gray"><div class="container"><div class="section-label">Common Questions</div>
+<h2 class="section-title">你提问，<span style="color:var(--red);">我们解答。</span></h2>
+<div style="max-width:720px;margin:32px auto 0;">
+<details><summary>你们多快能收货并处理我的库存？</summary><div class="detail-body">我们承诺 48 小时入仓上架。多数集装箱在 36 小时内完成收货、拆柜并同步至仓储系统。98% 当日提柜率与 20 余个月台，意味着你的货不会停在卡车上等月台。</div></details>
+<details><summary>你们集成哪些平台和市场？</summary><div class="detail-body">我们与 Amazon（FBA/FBM）、Walmart、eBay、Wayfair、TikTok Shop、SHEIN、Shopify、BigCommerce、WooCommerce、Magento 原生集成。定制平台由工程团队搭建 API/EDI 连接，通常 2-3 周完成。</div></details>
+<details><summary>你们真的会赔偿丢失或损坏的库存吗？</summary><div class="detail-body">是的。我们的零损耗承诺是合同义务，而非营销话术。丢失或损坏的货品，我们在 30 天内按零售价赔偿。实际货损率低于 0.1%，所以我们敢说敢赔。</div></details>
+<details><summary>你们的最低订单量是多少？</summary><div class="detail-body">我们服务月订单 500 单以上的品牌。如果你刚起步，也建议先联系——即便现在不入驻，我们的客户团队也能帮你规划物流路线图、把握合适时机。</div></details>
+<details><summary>你们如何应对旺季（Q4、Prime Day 等）？</summary><div class="detail-body">我们在大促前 60-90 天就开始扩充人手与班次。仓储系统内置产能预测工具，临近阈值时会同时预警我们和你。旺季期间，SLA 承诺一视同仁，绝无例外。</div></details>
+</div></div></section><section class="section-gray"><div class="container text-center"><div class="section-label">订阅更新</div>
+<h2 class="section-title" style="text-align:center;">Stay Updated / 订阅更新</h2>
+<p class="section-sub" style="text-align:center;margin:0 auto 32px;">行业洞察、运营技巧、物流趋势，每月直达您的邮箱。</p>
+<div style="max-width:560px;margin:0 auto;background:var(--white);border-radius:20px;padding:40px;border:1px solid var(--border);"><div class="form-group"><label>邮箱 *</label><input type="email" placeholder="you@company.com"></div><div class="form-row"><div class="form-group"><label>姓名（选填）</label><input placeholder="您的姓名"></div><div class="form-group"><label>公司（选填）</label><input placeholder="公司名称"></div></div><button class="btn btn-red" style="width:100%;padding:16px;">订阅</button></div></div></section><div class="cta-banner fade-in"><h2>想让这些直接进您的收件箱？</h2><p>每月物流情报，由我们的运营团队直送您手。</p><form class="subscribe-form" onsubmit="event.preventDefault(); alert('感谢订阅！');"><input type="email" placeholder="请输入您的邮箱" required class="subscribe-input"><button type="submit" class="btn btn-white">订阅</button></form></div><footer class="footer"><div class="footer-grid"><div class="footer-col"><img src="logo.webp" alt="Haulmax" class="footer-logo-img"><p>连接全球贸易与北美市场的"最后一公里"桥梁。由电商卖家创立，为成长型企业而生。</p><p style="opacity:0.4;">10401 7th St, Rancho Cucamonga, CA 91730<br>+1 (310) 363-0588</p><div class="social-links" style="margin-top:12px;"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">X</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">YT</a><a href="#" class="social-btn">We</a></div></div><div class="footer-col"><h5>服务</h5><a href="services-import-zh.html">进口服务</a><a href="services-fulfillment-zh.html">一件代发</a><a href="services-last-mile-zh.html">尾程配送</a></div><div class="footer-col"><h5>工具与集成</h5><a href="tech-integrations-zh.html">平台对接</a><a href="tech-rate-calculator-zh.html">运费计算器</a><a href="tech-tracker-zh.html">物流追踪</a><a href="tech-dim-calculator-zh.html">体积计算器</a><a href="tech-shopify-zh.html">Shopify</a><a href="tech-woocommerce-zh.html">WooCommerce</a></div><div class="footer-col"><a href="about-zh.html" class="footer-link-main">关于我们</a><span class="footer-link-main" style="cursor:default;">资源</span><a href="resources-zh.html" class="footer-link-sub">案例研究</a><a href="resources-zh.html" class="footer-link-sub">博客</a><a href="careers-zh.html" class="footer-link-main">招聘</a><a href="contact-zh.html" class="footer-link-main">联系我们</a></div></div><div class="footer-bottom"><span>&copy; 2026 Haulmax, Inc. All rights reserved.</span><span><a href="#">隐私政策</a> &middot; <a href="#">服务条款</a></span></div></footer><script>
+window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10)});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}));
+(function(){const slides=document.querySelectorAll('.testimonial-slide');if(slides.length>1){let i=0;setInterval(()=>{slides[i].classList.remove('active');i=(i+1)%slides.length;slides[i].classList.add('active')},5000)}})();
+</script></body></html>

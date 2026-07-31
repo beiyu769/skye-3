@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>关于 Haulmax — 生于电商，服务电商</title><meta name="description" content="Haulmax — 美国综合物流服务商。进口、履约、尾程一站打通，由深知物流痛点的电商运营者创立。"><style>
+
+  :root {
+    --red: #1A3A6F; --red-dark: #142952; --red-light: #3D6FB5;
+    --orange: #E87522; --orange-light: #F0A060; --navy: #1A3A6F;
+    --white: #FFFFFF; --bg: #FAFAFA; --bg-warm: #F0F4FA;
+    --text: #1A1A1A; --text-light: #555555; --text-muted: #999999;
+    --border: #E8E8E8; --shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'PingFang SC','Microsoft YaHei','Inter',sans-serif; color:var(--text); background:var(--white); line-height:1.7; overflow-x:hidden; padding-top:70px; }
+  a { text-decoration:none; color:inherit; }
+  img { max-width:100%; height:auto; display:block; }
+  .container { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .section-label { display:inline-block; font-size:11px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:3px; margin-bottom:12px; background:var(--bg-warm); padding:4px 12px; border-radius:4px; }
+  .section-title { font-size:38px; font-weight:800; letter-spacing:-0.5px; line-height:1.2; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-light); max-width:640px; line-height:1.8; }
+  nav { position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); z-index:1000; padding:0 60px; height:70px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid transparent; transition:all 0.3s; }
+  nav.scrolled { border-bottom-color:var(--border); box-shadow:0 2px 20px rgba(0,0,0,0.06); }
+  .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text); transition:color 0.15s; padding:4px 0; }
+  .nav-links a:hover, .nav-links a.active { color:var(--red); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:-12px; background:white; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.12); min-width:200px; padding:10px 0; z-index:10; }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:13px; color:var(--text-light); white-space:nowrap; }
+  .nav-dropdown-menu a:hover { background:var(--bg-warm); color:var(--red); }
+  .nav-cta { background:var(--red); color:var(--white); padding:10px 24px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-cta:hover { background:var(--red-dark); transform:translateY(-1px); }
+  .nav-lang { border:1px solid var(--red); color:var(--red); padding:9px 16px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-lang:hover { background:var(--red); color:white; }
+  .page-hero { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; padding:104px 60px 88px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 45%); }
+  .page-hero h1 { font-size:46px; font-weight:800; letter-spacing:-0.5px; position:relative; margin-bottom:18px; line-height:1.25; }
+  .page-hero p { font-size:17px; opacity:0.92; max-width:660px; margin:0 auto; position:relative; line-height:1.8; }
+  .breadcrumb { font-size:13px; opacity:0.6; margin-bottom:16px; position:relative; }
+  .breadcrumb a { color:white; text-decoration:underline; }
+  .cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .cards-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .card { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.25s; }
+  .card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .card-3d { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.3s; }
+  .card-3d:hover { box-shadow:0 16px 48px rgba(0,0,0,0.08); transform:translateY(-6px); border-color:transparent; }
+  .icon-3d { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+  .icon-3d.red { background:linear-gradient(135deg,var(--red),var(--red-light)); color:white; }
+  .icon-3d.orange { background:linear-gradient(135deg,var(--orange),var(--orange-light)); color:white; }
+  .icon-3d.navy { background:linear-gradient(135deg,var(--navy),#1A3A6F); color:white; }
+  .icon-3d svg { width:26px; height:26px; }
+  .value-card { background:white; border:1px solid var(--border); border-radius:16px; padding:32px; display:flex; gap:20px; align-items:flex-start; transition:all 0.25s; }
+  .value-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .value-card .v-icon { flex-shrink:0; width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; background:var(--bg-warm); color:var(--red); }
+  .value-card .v-icon svg { width:26px; height:26px; }
+  .value-card h3 { font-size:18px; font-weight:700; margin-bottom:6px; }
+  .value-card p { font-size:14px; color:var(--text-light); line-height:1.7; }
+  .guarantee-card { background:white; border-radius:16px; padding:32px; text-align:center; border:1px solid var(--border); transition:all 0.25s; }
+  .guarantee-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:var(--red); }
+  .guarantee-card .g-icon { width:48px; height:48px; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:var(--bg-warm); color:var(--red); }
+  .guarantee-card .g-icon svg { width:24px; height:24px; }
+  .guarantee-card h3 { font-size:17px; font-weight:700; color:var(--red); margin-bottom:8px; }
+  .guarantee-card p { font-size:14px; color:var(--text-light); line-height:1.7; }
+  .btn { display:inline-block; padding:14px 32px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; transition:all 0.2s; text-align:center; }
+  .btn-red { background:var(--red); color:white; }
+  .btn-red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(26,58,111,0.3); }
+  .btn-orange { background:var(--orange); color:white; }
+  .btn-orange:hover { background:#C85E1A; transform:translateY(-1px); box-shadow:0 6px 20px rgba(232,117,34,0.3); }
+  .btn-white { background:white; color:var(--red); }
+  .btn-white:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,255,255,0.25); }
+  .btn-outline { border:2px solid var(--red); color:var(--red); background:transparent; }
+  .btn-outline:hover { background:var(--red); color:white; }
+  section { padding:88px 0; }
+  .section-dark { background:var(--navy); color:white; }
+  .section-dark .section-title { color:white; }
+  .section-dark .section-label { background:rgba(255,255,255,0.1); color:var(--orange); }
+  .section-gray { background:var(--bg); }
+  .section-warm { background:var(--bg-warm); }
+  .cta-banner { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; text-align:center; padding:88px 60px; position:relative; overflow:hidden; }
+  .cta-banner h2 { font-size:40px; font-weight:800; letter-spacing:-0.5px; position:relative; }
+  .cta-banner p { font-size:17px; opacity:0.9; margin:14px 0 32px; position:relative; }
+  .footer { background:#0D1F3C; color:rgba(255,255,255,0.7); padding:64px 60px 32px; }
+  .footer-grid { display:grid; grid-template-columns:1.3fr 1fr 1.2fr 1fr; gap:48px; max-width:1200px; margin:0 auto; align-items:flex-start; }
+.footer-logo-img { height:30px; width:auto; display:block; margin-bottom:16px; }
+  .footer h5 { color:white; font-size:15px; margin-bottom:16px; font-weight:700; }
+  .footer a { display:block; color:rgba(255,255,255,0.5); font-size:13px; margin-bottom:8px; line-height:1.5; transition:color 0.2s; }
+  .footer a:hover { color:var(--orange); }
+  .footer-col p { font-size:13px; line-height:1.7; margin-bottom:12px; }
+  .social-links { display:flex; gap:10px; }
+.footer-link-main { display:block; font-size:15px; font-weight:700; color:white; margin-bottom:10px; transition:color 0.2s; text-decoration:none; }
+.footer-link-main:hover { color:var(--orange); }
+.footer-link-sub { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,0.5); margin-bottom:6px; margin-left:0; transition:color 0.2s; text-decoration:none; }
+.footer-link-sub:hover { color:var(--orange); }
+
+  .social-btn { width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; transition:all 0.2s; color:rgba(255,255,255,0.5); }
+  .social-btn:hover { border-color:var(--orange); color:var(--orange); }
+  .footer-bottom { padding-top:32px; margin-top:32px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; opacity:0.5; display:flex; justify-content:space-between; max-width:1200px; margin-left:auto; margin-right:auto; }
+  .text-center { text-align:center; }
+  .mt-2 { margin-top:32px; }
+  .mt-3 { margin-top:48px; }
+  .highlight { color:var(--red); font-weight:700; }
+  .story-quote { border-left:4px solid var(--red); padding:20px 28px; background:var(--bg-warm); border-radius:0 12px 12px 0; font-size:18px; font-style:italic; color:var(--text); line-height:1.8; margin:32px 0; }
+
+.lead-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.lead-card { background:white; border:1px solid var(--border); border-radius:16px; padding:32px; text-align:center; transition:all 0.25s; }
+.lead-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+.lead-avatar { width:72px; height:72px; border-radius:50%; margin:0 auto 18px; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:800; color:white; }
+.lead-avatar.red { background:var(--red); }
+.lead-avatar.orange { background:#E87522; }
+.lead-avatar.navy { background:var(--navy); }
+.lead-avatar.green { background:#16a34a; }
+.lead-card h3 { font-size:18px; font-weight:700; margin-bottom:4px; }
+.lead-role { font-size:13px; font-weight:600; color:var(--red); margin-bottom:12px; }
+.lead-card p { font-size:13px; color:var(--text-light); line-height:1.6; }
+
+.fade-in.visible { opacity:1; transform:translateY(0); }
+  @media(max-width:992px) { .cards-2,.cards-3 { grid-template-columns:1fr; } .cards-4 { grid-template-columns:repeat(2,1fr); } .footer-grid { grid-template-columns:repeat(2,1fr); } nav { padding:0 24px; } .nav-links { gap:16px; } .section-title { font-size:28px; } .page-hero h1 { font-size:34px; } }
+  @media(max-width:640px) { .cards-4 { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr; } }
+</style></head>
+<body><nav><a href="index-zh.html" class="nav-logo"><img src="logo.webp" alt="Haulmax" style="height:36px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index-zh.html" class="">首页</a></li><li class="nav-dropdown"><a href="services-import-zh.html" class="">服务</a><div class="nav-dropdown-menu"><a href="services-import-zh.html">进口服务</a><a href="services-fulfillment-zh.html">一件代发</a><a href="services-last-mile-zh.html">尾程配送</a></div></li><li class="nav-dropdown"><a href="tech-integrations-zh.html" class="">工具与集成</a><div class="nav-dropdown-menu"><a href="tech-integrations-zh.html">平台集成</a><a href="tech-rate-calculator-zh.html">运费计算器</a><a href="tech-tracker-zh.html">物流追踪</a><a href="tech-dim-calculator-zh.html">体积重量计算器</a><a href="tech-shopify-zh.html">Shopify</a><a href="tech-woocommerce-zh.html">WooCommerce</a></div></li><li><a href="about-zh.html" class="active">关于我们</a></li><li class="nav-dropdown"><a href="resources-zh.html" class="">资源</a><div class="nav-dropdown-menu"><a href="resources-zh.html">客户案例</a><a href="resources-zh.html">博客</a></div></li><li><a href="careers-zh.html" class="">招聘</a></li><li><a href="contact-zh.html" class="">联系我们</a></li></ul><a href="about.html" class="nav-lang">EN</a>
+<a href="contact-zh.html" class="nav-cta">获取报价</a></nav><div class="page-hero"><div class="breadcrumb"><a href="index-zh.html">首页</a> / 关于我们</div><h1>生于电商，<br><span style="color:var(--orange);">服务电商</span></h1><p>我们没在课堂上学物流，是被物流坑过之后，才建起了自己当年最想要的 3PL。</p></div><section class="section-gray"><div class="container"><div class="section-label">我们的故事</div><h2 class="section-title">那个搞砸一切的<br><span style="color:var(--red);">假日季</span></h2><div class="cards-2" style="margin-top:24px;align-items:start;"><div class="card-3d fade-in"><h3 style="margin-bottom:12px;color:var(--red);">痛点</h3><p style="color:var(--text-light);font-size:15px;line-height:1.9;">Haulmax 的创始人起步和大多数卖家一样——在车库里自己发货。生意做大后，他们把履约外包给了一家 3PL。假日季销量创下新高，直到翻车：那家 3PL 没能按时发货。礼物错过了圣诞，增长戛然而止。</p><p style="color:var(--text-light);font-size:15px;line-height:1.9;margin-top:14px;">当他们赶到仓库想抢救订单时，看到的是满地垃圾和一群毫不在意的员工。那一刻他们明白：履约不是一笔费用，而是生意本身。</p></div><div class="card-3d fade-in"><h3 style="margin-bottom:12px;color:var(--red);">解法</h3><p style="color:var(--text-light);font-size:15px;line-height:1.9;">于是他们自己开了一家 3PL。一家由卖家创立、把每一次延误和丢件都当成真金白银损失的 3PL——因为他们亲身经历过。</p><p style="color:var(--text-light);font-size:15px;line-height:1.9;margin-top:14px;">如今 Haulmax 在全美 48 州运营 120 万平方英尺自营仓，月处理 300 万单。同样的偏执，更大的版图。</p></div></div><div class="story-quote fade-in">"同行口中的'合理损耗'，在我们这里就是丢掉的销量、利润和客户。既然我们的失误会伤到你，那它也应该伤到我们自己。"</div><div class="text-center fade-in" style="margin-top:40px;"><img src="https://haulmax.com/wp-content/uploads/2024/09/img-9.webp" alt="Haulmax 团队" loading="lazy" style="width:100%;max-width:900px;margin:0 auto;border-radius:16px;box-shadow:var(--shadow);"></div></div></section><section><div class="container"><div class="section-label">我们的信条</div><h2 class="section-title">三项原则，<span style="color:var(--red);">一个标准</span></h2><div class="values-grid cards-3"><div class="card"><h3>稳定</h3><p>全美四大履约中心，120万平方英尺仓储空间，出库及时率99.97%。您的供应链，始终在线。</p></div><div class="card"><h3>透明</h3><p>实时数据看板、库存动态追踪、费用明码标价。每一票货都可查，每一分钱都透明。</p></div><div class="card"><h3>高效</h3><p>智能路由分仓、98% 48小时内上架率、99.95%库存准确率。极致速度，分毫不差。</p></div></div></div></section><section><div class="container"><div class="section-label">我们的方式</div><h2 class="section-title">我们如何<span style="color:var(--red);">运营</span></h2><div class="cards-2" style="margin-top:32px;"><div class="card fade-in"><div class="icon-3d red"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8l10-4z"/></svg></div><h3 style="font-size:18px;margin-bottom:10px;">纯自营运营</h3><p style="color:var(--text-light);font-size:14px;line-height:1.7;">每一间仓库、每一辆卡车、每一个流程都是我们自己的。不转包，不加盟。你把货交给我们，到位的就是我们。</p></div><div class="card fade-in"><div class="icon-3d orange"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h20v14H4z"/><path d="M24 10h4v12h-4"/><path d="M8 10h12M8 14h12M8 18h8"/></svg></div><h3 style="font-size:18px;margin-bottom:10px;">专属客户团队</h3><p style="color:var(--text-light);font-size:14px;line-height:1.7;">你的团队在Slack和WhatsApp上。实时响应，不是工单号。首次响应平均不到15分钟。</p></div><div class="card fade-in"><div class="icon-3d navy"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="6" width="24" height="16" rx="2"/><path d="M4 12h24M10 6v16"/></svg></div><h3 style="font-size:18px;margin-bottom:10px;">技术先行</h3><p style="color:var(--text-light);font-size:14px;line-height:1.7;">自研WMS，实时仪表盘。库存准确率、订单状态、承运商表现——全部可见，随时可查。</p></div><div class="card fade-in"><div class="icon-3d red"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16h20M16 6v20"/><circle cx="16" cy="16" r="12"/></svg></div><h3 style="font-size:18px;margin-bottom:10px;">承诺有罚则</h3><p style="color:var(--text-light);font-size:14px;line-height:1.7;">迟发、错拣、丢件，自动赔付，无需申诉。合同里写清楚，执行不打折。</p></div></div></div></section><section class="section-gray"><div class="container"><div class="section-label">幕后实况</div><h2 class="section-title"><span style="color:var(--red);">我们的设施</span></h2><div class="cards-4" style="margin-top:32px;"><div class="card-3d fade-in"><div class="icon-3d red"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="28" height="24" rx="2"/><path d="M2 20h28M2 12h28"/></svg></div><h3 style="margin-bottom:10px;color:var(--red);">120万平方英尺</h3><p style="color:var(--text-light);font-size:15px;line-height:1.9;">4个战略位置的自营仓储空间</p></div><div class="card-3d fade-in"><div class="icon-3d orange"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="16" r="12"/><path d="M16 8v8l5 4"/></svg></div><h3 style="margin-bottom:10px;color:var(--red);">高级安防</h3><p style="color:var(--text-light);font-size:15px;line-height:1.9;">24/7监控、门禁管理、消防系统</p></div><div class="card-3d fade-in"><div class="icon-3d navy"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16C6 8 10 4 16 4s10 4 10 12-4 12-10 12S6 24 6 16z"/><path d="M6 16h20"/></svg></div><h3 style="margin-bottom:10px;color:var(--red);">恒温恒湿仓</h3><p style="color:var(--text-light);font-size:15px;line-height:1.9;">温湿度监测分区存储</p></div><div class="card-3d fade-in"><div class="icon-3d red"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="28" height="20" rx="2"/><path d="M10 12h12M10 16h8M10 20h6"/></svg></div><h3 style="margin-bottom:10px;color:var(--red);">高速自动化</h3><p style="color:var(--text-light);font-size:15px;line-height:1.9;">传送带系统、自动分拣、条码扫描</p></div></div><div class="cards-3" style="margin-top:24px;"><img src="https://haulmax.com/wp-content/uploads/2024/09/img-1-1.webp" alt="仓库实景" loading="lazy" style="width:100%;height:200px;object-fit:cover;border-radius:16px;" class="fade-in"><img src="https://haulmax.com/wp-content/uploads/2024/09/img-2-2.webp" alt="仓库内部" loading="lazy" style="width:100%;height:200px;object-fit:cover;border-radius:16px;" class="fade-in"><img src="https://haulmax.com/wp-content/uploads/2024/09/img-3-1.webp" alt="仓库运营" loading="lazy" style="width:100%;height:200px;object-fit:cover;border-radius:16px;" class="fade-in"></div></div></section><section class="section-dark"><div class="container text-center"><div class="section-label">我们的承诺</div><h2 class="section-title">四项承诺，<span style="color:var(--orange);">白纸黑字</span></h2><div class="cards-4" style="margin-top:32px;"><div class="guarantee-card fade-in"><div class="g-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="28" height="24" rx="2"/><path d="M16 12v8M12 16h8"/></svg></div><h3>入仓 2 天</h3><p>货物到仓后 2 个工作日内完成收货上架，系统实时可查。</p></div><div class="guarantee-card fade-in"><div class="g-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8l10-4z"/><path d="M11 16l4 4 7-8"/></svg></div><h3>零货损</h3><p>不丢件、不破损。同行口中的"合理损耗"，在我们这里就是丢掉的生意。</p></div><div class="guarantee-card fade-in"><div class="g-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L8 18l-4 8 8-4 12-12z"/><path d="M18 8l6 6"/></svg></div><h3>拣货零错发</h3><p>对的货，发给对的人。出错必追因、必赔付，绝不推诿。</p></div><div class="guarantee-card fade-in"><div class="g-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="16" r="12"/><path d="M16 10v6l4 4"/></svg></div><h3>准时发货</h3><p>下午 5 点前下单当日发出。延误自动赔付，无需你发起申诉。</p></div></div><p style="margin-top:28px;font-size:15px;opacity:0.85;">零货损。零错发。极速入仓。否则我们赔。说到做到。</p></div></section><div class="cta-banner fade-in"><h2>把你的供应链做对</h2><p>从港口到门廊，一个真正在意的伙伴。告诉我们你在发什么货。</p><a href="contact-zh.html" class="btn btn-white">获取报价</a></div><footer class="footer"><div class="footer-grid"><div class="footer-col"><img src="logo.webp" alt="Haulmax" class="footer-logo-img"><p>连接全球贸易与北美市场的"最后一公里"桥梁。由电商卖家创立，为成长型企业而生。</p><p style="opacity:0.4;">10401 7th St, Rancho Cucamonga, CA 91730<br>+1 (310) 363-0588</p><div class="social-links" style="margin-top:12px;"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">X</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">YT</a><a href="#" class="social-btn">We</a></div></div><div class="footer-col"><h5>服务</h5><a href="services-import-zh.html">进口服务</a><a href="services-fulfillment-zh.html">一件代发</a><a href="services-last-mile-zh.html">尾程配送</a></div><div class="footer-col"><h5>工具与集成</h5><a href="tech-integrations-zh.html">平台对接</a><a href="tech-rate-calculator-zh.html">运费计算器</a><a href="tech-tracker-zh.html">物流追踪</a><a href="tech-dim-calculator-zh.html">体积计算器</a><a href="tech-shopify-zh.html">Shopify</a><a href="tech-woocommerce-zh.html">WooCommerce</a></div><div class="footer-col"><a href="about-zh.html" class="footer-link-main">关于我们</a><span class="footer-link-main" style="cursor:default;">资源</span><a href="resources-zh.html" class="footer-link-sub">案例研究</a><a href="resources-zh.html" class="footer-link-sub">博客</a><a href="careers-zh.html" class="footer-link-main">招聘</a><a href="contact-zh.html" class="footer-link-main">联系我们</a></div></div><div class="footer-bottom"><span>&copy; 2026 Haulmax, Inc. All rights reserved.</span><span><a href="#">隐私政策</a> &middot; <a href="#">服务条款</a></span></div></footer><script>
+window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10)});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script></body></html>

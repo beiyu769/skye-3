@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>客户案例 — Haulmax</title><meta name="description" content="Homestead Brands 如何借助 Haulmax 三年增长 10 倍：99.93% 准时履约、34,109 个包裹发出、大件重货专家。"><style>
+  :root {
+    --red: #1A3A6F; --red-dark: #142952; --red-light: #3D6FB5;
+    --orange: #E87522; --orange-light: #F0A060; --navy: #1A3A6F;
+    --white: #FFFFFF; --bg: #FAFAFA; --bg-warm: #F0F4FA;
+    --text: #1A1A1A; --text-light: #555555; --text-muted: #999999;
+    --border: #E8E8E8; --shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter','Segoe UI',-apple-system,sans-serif; color:var(--text); background:var(--white); line-height:1.6; overflow-x:hidden; padding-top:70px; }
+  a { text-decoration:none; color:inherit; }
+  img { max-width:100%; height:auto; display:block; }
+  .container { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .section-label { display:inline-block; font-size:11px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:3px; margin-bottom:12px; background:var(--bg-warm); padding:4px 12px; border-radius:4px; }
+  .section-title { font-size:38px; font-weight:800; letter-spacing:-0.8px; line-height:1.15; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-light); max-width:640px; line-height:1.7; }
+  nav { position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); z-index:1000; padding:0 60px; height:70px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid transparent; transition:all 0.3s; }
+  nav.scrolled { border-bottom-color:var(--border); box-shadow:0 2px 20px rgba(0,0,0,0.06); }
+  .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text); transition:color 0.15s; padding:4px 0; }
+  .nav-links a:hover, .nav-links a.active { color:var(--red); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:-12px; background:white; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.12); min-width:220px; padding:10px 0; z-index:10; }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:13px; color:var(--text-light); white-space:nowrap; }
+  .nav-dropdown-menu a:hover { background:var(--bg-warm); color:var(--red); }
+  .nav-cta { background:var(--red); color:var(--white); padding:10px 24px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-cta:hover { background:var(--red-dark); transform:translateY(-1px); }
+  .nav-lang { border:1px solid var(--red); color:var(--red); padding:9px 16px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-lang:hover { background:var(--red); color:white; }
+  .page-hero { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; padding:104px 60px 88px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 45%); }
+  .page-hero h1 { font-size:46px; font-weight:800; letter-spacing:-1px; position:relative; margin-bottom:18px; line-height:1.18; }
+  .page-hero p { font-size:17px; opacity:0.92; max-width:660px; margin:0 auto 32px; position:relative; line-height:1.7; }
+  .hero-cta { display:flex; gap:16px; justify-content:center; position:relative; flex-wrap:wrap; }
+  .breadcrumb { font-size:13px; opacity:0.6; margin-bottom:16px; position:relative; }
+  .breadcrumb a { color:white; text-decoration:underline; }
+  .cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .cards-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .card { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.25s; }
+  .card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .card-3d { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.3s; }
+  .card-3d:hover { box-shadow:0 16px 48px rgba(0,0,0,0.08); transform:translateY(-6px); border-color:transparent; }
+  .icon-3d { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+  .icon-3d.red { background:linear-gradient(135deg,var(--red),var(--red-light)); color:white; }
+  .icon-3d.orange { background:linear-gradient(135deg,var(--orange),var(--orange-light)); color:white; }
+  .icon-3d.navy { background:linear-gradient(135deg,var(--navy),#1A3A6F); color:white; }
+  .icon-3d svg { width:26px; height:26px; }
+  .metric-row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .metric-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:36px 24px; text-align:center; transition:all 0.2s; }
+  .metric-card:hover { box-shadow:0 8px 32px rgba(0,0,0,0.05); transform:translateY(-2px); }
+  .metric-card .num { font-size:44px; font-weight:800; color:var(--red); letter-spacing:-1.5px; line-height:1; }
+  .metric-card .label { font-size:13px; color:var(--text-light); margin-top:10px; font-weight:600; }
+  .guarantee-card { background:white; border-radius:16px; padding:32px; text-align:center; border:1px solid var(--border); transition:all 0.25s; }
+  .guarantee-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:var(--red); }
+  .guarantee-card .g-icon { width:48px; height:48px; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:var(--bg-warm); color:var(--red); }
+  .guarantee-card .g-icon svg { width:24px; height:24px; }
+  .guarantee-card h3 { font-size:17px; font-weight:700; color:var(--red); margin-bottom:8px; }
+  .guarantee-card p { font-size:14px; color:var(--text-light); line-height:1.6; }
+  .btn { display:inline-block; padding:14px 32px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; transition:all 0.2s; text-align:center; }
+  .btn-red { background:var(--red); color:white; }
+  .btn-red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(26,58,111,0.3); }
+  .btn-orange { background:var(--orange); color:white; }
+  .btn-orange:hover { background:#C85E1A; transform:translateY(-1px); box-shadow:0 6px 20px rgba(232,117,34,0.3); }
+  .btn-white { background:white; color:var(--red); }
+  .btn-white:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,255,255,0.25); }
+  .btn-outline { border:2px solid var(--red); color:var(--red); background:transparent; }
+  .btn-outline:hover { background:var(--red); color:white; }
+  section { padding:88px 0; }
+  .section-dark { background:var(--navy); color:white; }
+  .section-dark .section-title { color:white; }
+  .section-dark .section-label { background:rgba(255,255,255,0.1); color:var(--orange); }
+  .section-gray { background:var(--bg); }
+  .section-warm { background:var(--bg-warm); }
+  .cta-banner { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; text-align:center; padding:88px 60px; position:relative; overflow:hidden; }
+  .cta-banner h2 { font-size:40px; font-weight:800; letter-spacing:-0.8px; position:relative; }
+  .cta-banner p { font-size:17px; opacity:0.9; margin:14px 0 32px; position:relative; }
+  .footer { background:#0D1F3C; color:rgba(255,255,255,0.7); padding:64px 60px 32px; }
+  .footer-grid { display:grid; grid-template-columns:1.3fr 1fr 1.2fr 1fr; gap:48px; max-width:1200px; margin:0 auto; align-items:flex-start; }
+.footer-logo-img { height:30px; width:auto; display:block; margin-bottom:16px; }
+  .footer h5 { color:white; font-size:15px; margin-bottom:16px; font-weight:700; }
+  .footer a { display:block; color:rgba(255,255,255,0.5); font-size:13px; margin-bottom:8px; line-height:1.5; transition:color 0.2s; }
+  .footer a:hover { color:var(--orange); }
+  .footer-col p { font-size:13px; line-height:1.7; margin-bottom:12px; }
+  .social-links { display:flex; gap:10px; }
+.footer-link-main { display:block; font-size:15px; font-weight:700; color:white; margin-bottom:10px; transition:color 0.2s; text-decoration:none; }
+.footer-link-main:hover { color:var(--orange); }
+.footer-link-sub { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,0.5); margin-bottom:6px; margin-left:0; transition:color 0.2s; text-decoration:none; }
+.footer-link-sub:hover { color:var(--orange); }
+
+  .social-btn { width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; transition:all 0.2s; color:rgba(255,255,255,0.5); }
+  .social-btn:hover { border-color:var(--orange); color:var(--orange); }
+  .footer-bottom { padding-top:32px; margin-top:32px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; opacity:0.5; display:flex; justify-content:space-between; max-width:1200px; margin-left:auto; margin-right:auto; }
+  .text-center { text-align:center; }
+  .mt-2 { margin-top:32px; }
+  .mt-3 { margin-top:48px; }
+  .highlight { color:var(--red); font-weight:700; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:all 0.6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .case-hero { display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center; }
+  .case-hero .c-text h2 { font-size:30px; font-weight:800; margin-bottom:16px; line-height:1.2; }
+  .case-hero .c-text p { font-size:15px; color:var(--text-light); line-height:1.8; margin-bottom:14px; }
+  .case-hero .c-visual { background:linear-gradient(135deg,var(--navy),#1A3A6F); border-radius:20px; padding:48px; color:white; text-align:center; }
+  .case-hero .c-visual .big { font-size:64px; font-weight:800; color:var(--orange); letter-spacing:-2px; line-height:1; }
+  .case-hero .c-visual .sub { font-size:15px; opacity:0.85; margin-top:8px; }
+  .challenge-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .challenge-grid h3 { font-size:20px; font-weight:700; color:var(--navy); margin-bottom:12px; }
+  .challenge-grid p { font-size:15px; color:var(--text-light); line-height:1.8; }
+  .testimonial { background:var(--navy); color:white; border-radius:16px; padding:40px; margin-bottom:20px; }
+  .testimonial .quote { font-size:18px; font-weight:600; line-height:1.6; margin-bottom:16px; }
+  .testimonial .author { font-size:14px; opacity:0.85; }
+  .testimonial .author strong { color:var(--orange); }
+  .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media(max-width:992px) { .cards-2,.cards-3,.case-hero,.challenge-grid { grid-template-columns:1fr; } .cards-4 { grid-template-columns:repeat(2,1fr); } .metric-row { grid-template-columns:repeat(2,1fr); } .testi-grid { grid-template-columns:1fr; } .footer-grid { grid-template-columns:repeat(2,1fr); } nav { padding:0 24px; } .nav-links { gap:16px; } .section-title { font-size:28px; } .page-hero h1 { font-size:34px; } }
+  
+.pagination { display:flex; justify-content:center; gap:8px; padding:48px 0 20px; }
+.page-btn { display:inline-flex; align-items:center; justify-content:center; min-width:40px; height:40px; padding:0 14px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-weight:500; color:var(--text); text-decoration:none; transition:all 0.2s; background:white; }
+.page-btn:hover { border-color:var(--red); color:var(--red); }
+.page-btn.active { background:var(--red); color:white; border-color:var(--red); }
+.page-btn.disabled { opacity:0.35; pointer-events:none; }
+.subscribe-form { display:flex; gap:12px; max-width:480px; margin:24px auto 0; position:relative; z-index:1; }
+.subscribe-input { flex:1; padding:14px 18px; border:none; border-radius:10px; font-size:15px; outline:none; background:rgba(255,255,255,0.95); color:var(--text); }
+.subscribe-input::placeholder { color:var(--text-muted); }
+.subscribe-form .btn { white-space:nowrap; }
+@media(max-width:640px) { .subscribe-form { flex-direction:column; max-width:100%; } }
+  @media(max-width:640px) { .cards-4,.metric-row { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr; } }
+</style></head><body><nav><a href="index-zh.html" class="nav-logo"><img src="logo.webp" alt="Haulmax" style="height:36px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index-zh.html" class="">首页</a></li><li class="nav-dropdown"><a href="services-import-zh.html" class="">服务</a><div class="nav-dropdown-menu"><a href="services-import-zh.html">进口服务</a><a href="services-fulfillment-zh.html">仓储履约</a><a href="services-last-mile-zh.html">末端配送</a></div></li><li class="nav-dropdown"><a href="tech-integrations-zh.html" class="">工具与集成</a><div class="nav-dropdown-menu"><a href="tech-integrations-zh.html">平台对接</a><a href="tech-rate-calculator-zh.html">运费计算器</a><a href="tech-tracker-zh.html">物流追踪</a><a href="tech-dim-calculator-zh.html">体积重计算器</a><a href="tech-shopify-zh.html">Shopify</a><a href="tech-woocommerce-zh.html">WooCommerce</a></div></li><li><a href="about-zh.html" class="">关于我们</a></li><li class="nav-dropdown"><a href="resources-zh.html" class="active">资源</a><div class="nav-dropdown-menu"><a href="resources-case-studies-zh.html">客户案例</a><a href="resources-blog-zh.html">博客</a></div></li><li><a href="careers-zh.html" class="">加入我们</a></li><li><a href="contact-zh.html" class="">联系我们</a></li></ul><a href="resources-case-studies.html" class="nav-lang">EN</a>
+<a href="contact-zh.html" class="nav-cta">获取报价</a></nav><div class="page-hero"><div class="breadcrumb"><a href="index-zh.html">首页</a> / 资源 / 客户案例</div><h1>客户案例</h1><p>真实的运营者，真实的增长。看看品牌如何与一家为结果担保的 3PL 共同成长。</p><div class="hero-cta"><a href="contact-zh.html" class="btn btn-white">获取报价</a></div></div><section class="section-gray"><div class="container"><div class="section-label">精选案例</div><h2 class="section-title">Homestead Brands：<span style="color:var(--red);">三年增长 10 倍</span></h2><div class="case-hero" style="margin-top:32px;"><div class="c-text fade-in"><p>Homestead Brands 销售大件、重货和 bulky 产品——大多数 3PL 根本不愿接。在几经挫折寻找"真正懂我们需求"的伙伴后，他们找到了 Haulmax。</p><p>凭借透明定价、贴心服务，以及把真金白银押在结果上的担保，Haulmax 成为该品类增长最快的 D2C 品牌背后的履约支柱。</p><a href="contact-zh.html" class="btn btn-red" style="margin-top:8px;">开启您的故事</a></div><div class="c-visual fade-in"><div class="big">10X</div><div class="sub">三年业务增长</div></div></div></div></section><section><div class="container"><div class="section-label">挑战</div><h2 class="section-title">大件、重货，<span style="color:var(--red);">难发货</span></h2><div class="challenge-grid" style="margin-top:24px;"><div class="fade-in"><h3>问题</h3><p>标准 3PL 和 Shopify 履约网络不处理超大库存。Homestead 的重型 D2C 包裹屡屡被忽视——而他们此前的 3PL 支持"时好时坏：开个工单，转给海外，原地打转"。</p></div><div class="fade-in"><h3>Haulmax 方案</h3><p>原生处理 20 磅以上包裹，无上限；透明按件定价；美国本土团队快速响应、主动解决问题——出错时还会赔付。一个"让全公司都上紧发条"的伙伴。</p></div></div></div></section><section class="section-warm"><div class="container"><div class="section-label">成果</div><h2 class="section-title">用<span style="color:var(--red);">数据</span>说话</h2><div class="metric-row" style="margin-top:32px;"><div class="metric-card fade-in"><div class="num">10X</div><div class="label">三年增长</div></div><div class="metric-card fade-in"><div class="num">99.93%</div><div class="label">准时履约率</div></div><div class="metric-card fade-in"><div class="num">34,109</div><div class="label">已发包裹</div></div><div class="metric-card fade-in"><div class="num">99.6%</div><div class="label">订单准确率</div></div></div></div></section><section><div class="container"><div class="section-label">客户之声</div><h2 class="section-title">团队<span style="color:var(--red);">怎么说</span></h2><div class="testi-grid" style="margin-top:32px;"><div class="testimonial fade-in"><p class="quote">"在一次沮丧中，我决定谷歌搜索'3PL 大件重货'，然后找到了 Haulmax。难以置信，居然有人能精准搞定我们的需求。"</p><p class="author"><strong>Brenden Marquardt</strong> — 创始人兼所有者，Homestead Brands</p></div><div class="testimonial fade-in"><p class="quote">"Haulmax 履约最打动我们的，是他们的客户服务和透明的定价。如此庞大的运营，却依然让人感觉如此贴心，令人惊叹。"</p><p class="author"><strong>Kyle Marquardt</strong> — 创始人兼所有者，Homestead Brands</p></div><div class="testimonial fade-in"><p class="quote">"RSF 团队对每一次沟通都响应迅速、考虑周全。Haulmax 履约是我们高度依赖的伙伴，我们信任他们的承载力、智慧与系统，让我们得以成长。"</p><p class="author"><strong>Danielle Gray</strong> — 客户体验经理，Homestead Brands</p></div></div></div></section><div class="cta-banner fade-in"><h2>有成功案例？让我们来讲。</h2><p>告诉我们您的增长计划，我们为您规划背后的履约方案。</p><a href="contact-zh.html" class="btn btn-white">联系我们</a></div><footer class="footer"><div class="footer-grid"><div class="footer-col"><img src="logo.webp" alt="Haulmax" class="footer-logo-img"><p>连接全球贸易与北美市场的"最后一公里"桥梁。由电商卖家创立，为成长型企业而生。</p><p style="opacity:0.4;">10401 7th St, Rancho Cucamonga, CA 91730<br>+1 (310) 363-0588</p><div class="social-links" style="margin-top:12px;"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">X</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">YT</a><a href="#" class="social-btn">We</a></div></div><div class="footer-col"><h5>服务</h5><a href="services-import-zh.html">进口服务</a><a href="services-fulfillment-zh.html">一件代发</a><a href="services-last-mile-zh.html">尾程配送</a></div><div class="footer-col"><h5>工具与集成</h5><a href="tech-integrations-zh.html">平台对接</a><a href="tech-rate-calculator-zh.html">运费计算器</a><a href="tech-tracker-zh.html">物流追踪</a><a href="tech-dim-calculator-zh.html">体积计算器</a><a href="tech-shopify-zh.html">Shopify</a><a href="tech-woocommerce-zh.html">WooCommerce</a></div><div class="footer-col"><a href="about-zh.html" class="footer-link-main">关于我们</a><span class="footer-link-main" style="cursor:default;">资源</span><a href="resources-zh.html" class="footer-link-sub">案例研究</a><a href="resources-zh.html" class="footer-link-sub">博客</a><a href="careers-zh.html" class="footer-link-main">招聘</a><a href="contact-zh.html" class="footer-link-main">联系我们</a></div></div><div class="footer-bottom"><span>&copy; 2026 Haulmax, Inc. All rights reserved.</span><span><a href="#">隐私政策</a> &middot; <a href="#">服务条款</a></span></div></footer><script>
+window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10)});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script></body></html>

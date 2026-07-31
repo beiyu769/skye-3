@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Your WooCommerce Fulfillment Partner — Haulmax</title><meta name="description" content="A 3PL built for WooCommerce. 5-step integration, 100% accuracy guarantees, and a team with ecommerce DNA."><style>
+  :root {
+    --red: #1A3A6F; --red-dark: #142952; --red-light: #3D6FB5;
+    --orange: #E87522; --orange-light: #F0A060; --navy: #1A3A6F;
+    --white: #FFFFFF; --bg: #FAFAFA; --bg-warm: #F0F4FA;
+    --text: #1A1A1A; --text-light: #555555; --text-muted: #999999;
+    --border: #E8E8E8; --shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter','Segoe UI',-apple-system,sans-serif; color:var(--text); background:var(--white); line-height:1.6; overflow-x:hidden; padding-top:70px; }
+  a { text-decoration:none; color:inherit; }
+  img { max-width:100%; height:auto; display:block; }
+  .container { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .section-label { display:inline-block; font-size:11px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:3px; margin-bottom:12px; background:var(--bg-warm); padding:4px 12px; border-radius:4px; }
+  .section-title { font-size:38px; font-weight:800; letter-spacing:-0.8px; line-height:1.15; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-light); max-width:640px; line-height:1.7; }
+  nav { position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); z-index:1000; padding:0 60px; height:70px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid transparent; transition:all 0.3s; }
+  nav.scrolled { border-bottom-color:var(--border); box-shadow:0 2px 20px rgba(0,0,0,0.06); }
+  .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text); transition:color 0.15s; padding:4px 0; }
+  .nav-links a:hover, .nav-links a.active { color:var(--red); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:-12px; background:white; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.12); min-width:220px; padding:10px 0; z-index:10; }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:13px; color:var(--text-light); white-space:nowrap; }
+  .nav-dropdown-menu a:hover { background:var(--bg-warm); color:var(--red); }
+  .nav-cta { background:var(--red); color:var(--white); padding:10px 24px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-cta:hover { background:var(--red-dark); transform:translateY(-1px); }
+  .nav-lang { border:1px solid var(--red); color:var(--red); padding:9px 16px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-lang:hover { background:var(--red); color:white; }
+  .page-hero { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; padding:104px 60px 88px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 45%); }
+  .page-hero h1 { font-size:46px; font-weight:800; letter-spacing:-1px; position:relative; margin-bottom:18px; line-height:1.18; }
+  .page-hero p { font-size:17px; opacity:0.92; max-width:660px; margin:0 auto 32px; position:relative; line-height:1.7; }
+  .hero-cta { display:flex; gap:16px; justify-content:center; position:relative; flex-wrap:wrap; }
+  .breadcrumb { font-size:13px; opacity:0.6; margin-bottom:16px; position:relative; }
+  .breadcrumb a { color:white; text-decoration:underline; }
+  .cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .cards-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .card { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.25s; }
+  .card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .card-3d { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.3s; }
+  .card-3d:hover { box-shadow:0 16px 48px rgba(0,0,0,0.08); transform:translateY(-6px); border-color:transparent; }
+  .icon-3d { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+  .icon-3d.red { background:linear-gradient(135deg,var(--red),var(--red-light)); color:white; }
+  .icon-3d.orange { background:linear-gradient(135deg,var(--orange),var(--orange-light)); color:white; }
+  .icon-3d.navy { background:linear-gradient(135deg,var(--navy),#1A3A6F); color:white; }
+  .icon-3d svg { width:26px; height:26px; }
+  .metric-row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .metric-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:36px 24px; text-align:center; transition:all 0.2s; }
+  .metric-card:hover { box-shadow:0 8px 32px rgba(0,0,0,0.05); transform:translateY(-2px); }
+  .metric-card .num { font-size:44px; font-weight:800; color:var(--red); letter-spacing:-1.5px; line-height:1; }
+  .metric-card .label { font-size:13px; color:var(--text-light); margin-top:10px; font-weight:600; }
+  .guarantee-card { background:white; border-radius:16px; padding:32px; text-align:center; border:1px solid var(--border); transition:all 0.25s; }
+  .guarantee-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:var(--red); }
+  .guarantee-card .g-icon { width:48px; height:48px; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:var(--bg-warm); color:var(--red); }
+  .guarantee-card .g-icon svg { width:24px; height:24px; }
+  .guarantee-card h3 { font-size:17px; font-weight:700; color:var(--red); margin-bottom:8px; }
+  .guarantee-card p { font-size:14px; color:var(--text-light); line-height:1.6; }
+  .btn { display:inline-block; padding:14px 32px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; transition:all 0.2s; text-align:center; }
+  .btn-red { background:var(--red); color:white; }
+  .btn-red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(26,58,111,0.3); }
+  .btn-orange { background:var(--orange); color:white; }
+  .btn-orange:hover { background:#C85E1A; transform:translateY(-1px); box-shadow:0 6px 20px rgba(232,117,34,0.3); }
+  .btn-white { background:white; color:var(--red); }
+  .btn-white:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,255,255,0.25); }
+  .btn-outline { border:2px solid var(--red); color:var(--red); background:transparent; }
+  .btn-outline:hover { background:var(--red); color:white; }
+  section { padding:88px 0; }
+  .section-dark { background:var(--navy); color:white; }
+  .section-dark .section-title { color:white; }
+  .section-dark .section-label { background:rgba(255,255,255,0.1); color:var(--orange); }
+  .section-gray { background:var(--bg); }
+  .section-warm { background:var(--bg-warm); }
+  .cta-banner { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; text-align:center; padding:88px 60px; position:relative; overflow:hidden; }
+  .cta-banner h2 { font-size:40px; font-weight:800; letter-spacing:-0.8px; position:relative; }
+  .cta-banner p { font-size:17px; opacity:0.9; margin:14px 0 32px; position:relative; }
+  .footer { background:#0D1F3C; color:rgba(255,255,255,0.7); padding:64px 60px 32px; }
+  .footer-grid { display:grid; grid-template-columns:1.3fr 1fr 1.2fr 1fr; gap:48px; max-width:1200px; margin:0 auto; align-items:flex-start; }
+.footer-logo-img { height:30px; width:auto; display:block; margin-bottom:16px; }
+  .footer h5 { color:white; font-size:15px; margin-bottom:16px; font-weight:700; }
+  .footer a { display:block; color:rgba(255,255,255,0.5); font-size:13px; margin-bottom:8px; line-height:1.5; transition:color 0.2s; }
+  .footer a:hover { color:var(--orange); }
+  .footer-col p { font-size:13px; line-height:1.7; margin-bottom:12px; }
+  .social-links { display:flex; gap:10px; }
+.footer-link-main { display:block; font-size:15px; font-weight:700; color:white; margin-bottom:10px; transition:color 0.2s; text-decoration:none; }
+.footer-link-main:hover { color:var(--orange); }
+.footer-link-sub { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,0.5); margin-bottom:6px; margin-left:0; transition:color 0.2s; text-decoration:none; }
+.footer-link-sub:hover { color:var(--orange); }
+
+  .social-btn { width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; transition:all 0.2s; color:rgba(255,255,255,0.5); }
+  .social-btn:hover { border-color:var(--orange); color:var(--orange); }
+  .footer-bottom { padding-top:32px; margin-top:32px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; opacity:0.5; display:flex; justify-content:space-between; max-width:1200px; margin-left:auto; margin-right:auto; }
+  .text-center { text-align:center; }
+  .mt-2 { margin-top:32px; }
+  .mt-3 { margin-top:48px; }
+  .highlight { color:var(--red); font-weight:700; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:all 0.6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .step-flow { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; counter-reset:step; }
+  .step-card { background:white; border:1px solid var(--border); border-radius:16px; padding:28px 22px; position:relative; transition:all 0.25s; }
+  .step-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:var(--red); }
+  .step-card .num { width:40px; height:40px; border-radius:50%; background:var(--red); color:white; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px; margin-bottom:16px; }
+  .step-card h3 { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .step-card p { font-size:13px; color:var(--text-light); line-height:1.6; }
+  .testimonial { background:var(--navy); color:white; border-radius:16px; padding:36px 40px; margin-bottom:20px; }
+  .testimonial .quote { font-size:17px; font-weight:600; line-height:1.5; margin-bottom:14px; }
+  .testimonial .author { font-size:14px; opacity:0.8; }
+  .testimonial .author strong { color:var(--orange); }
+  .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .dna { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .dna .d-text h3 { font-size:26px; font-weight:800; margin-bottom:16px; }
+  .dna .d-text p { font-size:15px; color:var(--text-light); line-height:1.8; margin-bottom:16px; }
+  .dna .d-visual { background:linear-gradient(135deg,var(--red),var(--red-dark)); border-radius:16px; padding:48px; color:white; text-align:center; }
+  .dna .d-visual .big { font-size:40px; font-weight:800; letter-spacing:-1px; }
+  @media(max-width:992px) { .cards-2,.cards-3,.dna { grid-template-columns:1fr; } .cards-4 { grid-template-columns:repeat(2,1fr); } .metric-row { grid-template-columns:repeat(2,1fr); } .step-flow { grid-template-columns:repeat(2,1fr); } .testi-grid { grid-template-columns:1fr; } .footer-grid { grid-template-columns:repeat(2,1fr); } nav { padding:0 24px; } .nav-links { gap:16px; } .section-title { font-size:28px; } .page-hero h1 { font-size:34px; } }
+  @media(max-width:640px) { .cards-4,.metric-row,.step-flow { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr; } }
+</style></head><body><nav><a href="index.html" class="nav-logo"><img src="logo.webp" alt="Haulmax" style="height:36px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index.html" class="">Home</a></li><li class="nav-dropdown"><a href="services-import.html" class="">Services</a><div class="nav-dropdown-menu"><a href="services-import.html">Import Services</a><a href="services-fulfillment.html">Fulfillment</a><a href="services-last-mile.html">Last-Mile Delivery</a></div></li><li class="nav-dropdown"><a href="tech-integrations.html" class="active">Tools &amp; Integrations</a><div class="nav-dropdown-menu"><a href="tech-integrations.html">Platform Integrations</a><a href="tech-rate-calculator.html">Rate Calculator</a><a href="tech-tracker.html">Tracker</a><a href="tech-dim-calculator.html">DIM Calculator</a><a href="tech-shopify.html">Shopify</a><a href="tech-woocommerce.html">WooCommerce</a></div></li><li><a href="about.html" class="">About</a></li><li class="nav-dropdown"><a href="resources.html" class="">Resources</a><div class="nav-dropdown-menu"><a href="resources.html">Case Studies</a><a href="resources.html">Blog</a></div></li><li><a href="careers.html" class="">Careers</a></li><li><a href="contact.html" class="">Contact</a></li></ul><a href="tech-woocommerce-zh.html" class="nav-lang">中文</a>
+<a href="contact.html" class="nav-cta">Get a Quote</a></nav><div class="page-hero"><div class="breadcrumb"><a href="index.html">Home</a> / Technology / WooCommerce</div><h1>Your WooCommerce Fulfillment Partner</h1><p>Scale your business with a 3PL that gets WooCommerce order fulfillment services.</p><div class="hero-cta"><a href="contact.html" class="btn btn-white">Talk With Us</a><a href="tech-integrations.html" class="btn btn-outline" style="color:white;border-color:white;">See Integrations</a></div></div><section class="section-gray"><div class="container text-center"><div class="section-label">Our Guarantees</div><h2 class="section-title">Four Guarantees for <span style="color:var(--red);">WooCommerce Sellers</span></h2><div class="cards-4" style="margin-top:40px;"><div class="guarantee-card fade-in"><div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><h3>100% Order Accuracy</h3><p>Every pick, pack and ship verified before it leaves the dock.</p></div><div class="guarantee-card fade-in"><div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><h3>100% Inventory Accuracy</h3><p>Real-time counts synced to your WooCommerce store, always.</p></div><div class="guarantee-card fade-in"><div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>1-2 Day Ground Delivery</h3><p>Strategic warehouses put 96% of US homes within 2 days.</p></div><div class="guarantee-card fade-in"><div class="g-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3.5 3.5 0 010 7M21 20c0-2.5-1.5-4.5-4-5.5"/></svg></div><h3>US-Based Client Support</h3><p>Success team staffed by people who started on the warehouse floor.</p></div></div></div></section><section><div class="container"><div class="section-label">Integration Workflow</div><h2 class="section-title">Five Steps to Seamless Fulfillment</h2><div class="step-flow" style="margin-top:32px;"><div class="step-card fade-in"><div class="num">1</div><h3>Connect</h3><p>Link your WooCommerce store via API key — our team can do it for you.</p></div><div class="step-card fade-in"><div class="num">2</div><h3>Configure rules</h3><p>Set push cadence (every 15 min), QA holds, SKU-specific logic.</p></div><div class="step-card fade-in"><div class="num">3</div><h3>Push data back</h3><p>Ship notices, tracking numbers, in-cart shipping rates to your store.</p></div><div class="step-card fade-in"><div class="num">4</div><h3>Get data</h3><p>Inventory, shipment status and reports in near real-time.</p></div><div class="step-card fade-in"><div class="num">5</div><h3>Update</h3><p>Modular design — tweak rules yourself, no developer needed.</p></div></div></div></section><section class="section-warm"><div class="container"><div class="dna"><div class="d-text fade-in"><div class="section-label">Our Story</div><h3>A 3PL with eCommerce DNA</h3><p>Haulmax Fulfillment was built for ecommerce operators, by ecommerce operators. Our client success team is staffed by people who started their careers on the warehouse floor.</p><p>Our integrations team has helped hundreds of store owners set up seamless connections — so you get a partner who speaks both WooCommerce and warehousing fluently.</p><a href="contact.html" class="btn btn-red">Talk With Us</a></div><div class="d-visual fade-in"><div class="big">Built by<br>operators,<br>for operators</div><p style="opacity:0.85;margin-top:16px;">One 3PL for WooCommerce store owners, with everything you need.</p></div></div></div></section><section><div class="container"><div class="section-label">What Sellers Say</div><h2 class="section-title">People Who Get WooCommerce</h2><div class="testi-grid" style="margin-top:32px;"><div class="testimonial fade-in"><p class="quote">"We don't have to worry about anything with RSF. We can't ship our big heavy D2C packages without them!"</p><p class="author"><strong>Lori Beds</strong> — Founder/CEO</p></div><div class="testimonial fade-in"><p class="quote">"Haulmax has been a part of our eCommerce story since we first sold online, and we've grown together."</p><p class="author"><strong>The Original Oatly</strong> — Owner/CEO</p></div><div class="testimonial fade-in"><p class="quote">"As a partner, I take them for granted now. That reliability — it's one less thing to worry about."</p><p class="author"><strong>Pop-A-Shot</strong> — Owner/CEO</p></div></div></div></section><div class="cta-banner fade-in"><h2>Haulmax Takes the Stress Out of 3PL</h2><p>Let's get your WooCommerce store connected today.</p><a href="contact.html" class="btn btn-white">Talk With Us</a></div><footer class="footer"><div class="footer-grid"><div class="footer-col"><img src="logo.webp" alt="Haulmax" class="footer-logo-img"><p>Your Last-Mile Bridge to the US Market. Founded by ecommerce operators, built for scaling businesses.</p><p style="opacity:0.4;">10401 7th St, Rancho Cucamonga, CA 91730<br>+1 (310) 363-0588</p><div class="social-links" style="margin-top:12px;"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">X</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">YT</a><a href="#" class="social-btn">We</a></div></div><div class="footer-col"><h5>Services</h5><a href="services-import.html">Import Services</a><a href="services-fulfillment.html">Fulfillment</a><a href="services-last-mile.html">Last-Mile Delivery</a></div><div class="footer-col"><h5>Tools &amp; Integrations</h5><a href="tech-integrations.html">Platform Integrations</a><a href="tech-rate-calculator.html">Rate Calculator</a><a href="tech-tracker.html">Tracker</a><a href="tech-dim-calculator.html">DIM Calculator</a><a href="tech-shopify.html">Shopify</a><a href="tech-woocommerce.html">WooCommerce</a></div><div class="footer-col"><a href="about.html" class="footer-link-main">About Us</a><span class="footer-link-main" style="cursor:default;">Resources</span><a href="resources.html" class="footer-link-sub">Case Studies</a><a href="resources.html" class="footer-link-sub">Blog</a><a href="careers.html" class="footer-link-main">Careers</a><a href="contact.html" class="footer-link-main">Contact</a></div></div><div class="footer-bottom"><span>&copy; 2026 Haulmax, Inc. All rights reserved.</span><span><a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Service</a></span></div></footer><script>
+window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10)});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script></body></html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Resources — Ecommerce Logistics Intelligence & Benchmarks | Haulmax</title><meta name="description" content="Practical logistics guides for ecommerce operators: shrinkage cost analysis, cross-border customs, multi-channel fulfillment, peak season planning, returns management, drayage, and 3PL evaluation."><style>
+  :root {
+    --red: #1A3A6F; --red-dark: #142952; --red-light: #3D6FB5;
+    --orange: #E87522; --orange-light: #F0A060; --navy: #1A3A6F;
+    --white: #FFFFFF; --bg: #FAFAFA; --bg-warm: #F0F4FA;
+    --text: #1A1A1A; --text-light: #555555; --text-muted: #999999;
+    --border: #E8E8E8; --shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter','Segoe UI',-apple-system,sans-serif; color:var(--text); background:var(--white); line-height:1.6; overflow-x:hidden; padding-top:70px; }
+  a { text-decoration:none; color:inherit; }
+  img { max-width:100%; height:auto; display:block; }
+  .container { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .section-label { display:inline-block; font-size:11px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:3px; margin-bottom:12px; background:var(--bg-warm); padding:4px 12px; border-radius:4px; }
+  .section-title { font-size:38px; font-weight:800; letter-spacing:-0.8px; line-height:1.15; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-light); max-width:640px; line-height:1.7; }
+  nav { position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); z-index:1000; padding:0 60px; height:70px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid transparent; transition:all 0.3s; }
+  nav.scrolled { border-bottom-color:var(--border); box-shadow:0 2px 20px rgba(0,0,0,0.06); }
+  .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text); transition:color 0.15s; padding:4px 0; }
+  .nav-links a:hover, .nav-links a.active { color:var(--red); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:-12px; background:white; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.12); min-width:220px; padding:10px 0; z-index:10; }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:13px; color:var(--text-light); white-space:nowrap; }
+  .nav-dropdown-menu a:hover { background:var(--bg-warm); color:var(--red); }
+  .nav-cta { background:var(--red); color:var(--white); padding:10px 24px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-cta:hover { background:var(--red-dark); transform:translateY(-1px); }
+
+  .nav-lang { border:1px solid var(--red); color:var(--red); padding:9px 16px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-lang:hover { background:var(--red); color:white; }
+  .page-hero { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; padding:100px 60px 80px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero h1 { font-size:48px; font-weight:800; letter-spacing:-1px; position:relative; margin-bottom:16px; }
+  .page-hero p { font-size:17px; opacity:0.9; max-width:680px; margin:0 auto; position:relative; line-height:1.7; }
+  .breadcrumb { font-size:13px; opacity:0.6; margin-bottom:16px; position:relative; }
+  .breadcrumb a { color:white; text-decoration:underline; }
+  .cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .cards-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .card { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.25s; }
+  .card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .card-3d { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.3s; }
+  .card-3d:hover { box-shadow:0 16px 48px rgba(0,0,0,0.08); transform:translateY(-6px); border-color:transparent; }
+  .icon-3d { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+  .icon-3d.red { background:linear-gradient(135deg,var(--red),var(--red-light)); color:white; }
+  .icon-3d.orange { background:linear-gradient(135deg,var(--orange),var(--orange-light)); color:white; }
+  .icon-3d.navy { background:linear-gradient(135deg,var(--navy),#1A3A6F); color:white; }
+  .icon-3d svg { width:24px; height:24px; }
+  .metric-row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .metric-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:36px 24px; text-align:center; transition:all 0.2s; }
+  .metric-card:hover { box-shadow:0 8px 32px rgba(0,0,0,0.05); transform:translateY(-2px); }
+  .metric-card .num { font-size:44px; font-weight:800; color:var(--red); letter-spacing:-1.5px; line-height:1; }
+  .metric-card .label { font-size:13px; color:var(--text-light); margin-top:10px; font-weight:600; }
+  .guarantee-card { background:white; border-radius:16px; padding:32px; text-align:center; border:1px solid var(--border); transition:all 0.25s; }
+  .guarantee-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:var(--red); }
+  .guarantee-card img { width:48px; height:48px; margin:0 auto 16px; }
+  .guarantee-card h3 { font-size:17px; font-weight:700; color:var(--red); margin-bottom:8px; }
+  .guarantee-card p { font-size:14px; color:var(--text-light); line-height:1.6; }
+  .btn { display:inline-block; padding:14px 32px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; transition:all 0.2s; text-align:center; }
+  .btn-red { background:var(--red); color:white; }
+  .btn-red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(26,58,111,0.3); }
+  .btn-orange { background:var(--orange); color:white; }
+  .btn-orange:hover { background:#C85E1A; transform:translateY(-1px); box-shadow:0 6px 20px rgba(232,117,34,0.3); }
+  .btn-white { background:white; color:var(--red); }
+  .btn-white:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,255,255,0.25); }
+  .btn-outline { border:2px solid var(--red); color:var(--red); background:transparent; }
+  .btn-outline:hover { background:var(--red); color:white; }
+  section { padding:88px 0; }
+  .section-dark { background:var(--navy); color:white; }
+  .section-dark .section-title { color:white; }
+  .section-dark .section-label { background:rgba(255,255,255,0.1); color:var(--orange); }
+  .section-gray { background:var(--bg); }
+  .section-warm { background:var(--bg-warm); }
+  .cta-banner { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; text-align:center; padding:88px 60px; position:relative; overflow:hidden; }
+  .cta-banner h2 { font-size:40px; font-weight:800; letter-spacing:-0.8px; position:relative; }
+  .cta-banner p { font-size:17px; opacity:0.9; margin:14px 0 32px; position:relative; }
+  .footer { background:#0D1F3C; color:rgba(255,255,255,0.7); padding:64px 60px 32px; }
+  .footer-grid { display:grid; grid-template-columns:1.3fr 1fr 1.2fr 1fr; gap:48px; max-width:1200px; margin:0 auto; align-items:flex-start; }
+.footer-logo-img { height:30px; width:auto; display:block; margin-bottom:16px; }
+  .footer h5 { color:white; font-size:15px; margin-bottom:16px; font-weight:700; }
+  .footer a { display:block; color:rgba(255,255,255,0.5); font-size:13px; margin-bottom:8px; line-height:1.5; transition:color 0.2s; }
+  .footer a:hover { color:var(--orange); }
+  .footer-col p { font-size:13px; line-height:1.7; margin-bottom:12px; }
+  .social-links { display:flex; gap:10px; }
+.footer-link-main { display:block; font-size:15px; font-weight:700; color:white; margin-bottom:10px; transition:color 0.2s; text-decoration:none; }
+.footer-link-main:hover { color:var(--orange); }
+.footer-link-sub { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,0.5); margin-bottom:6px; margin-left:0; transition:color 0.2s; text-decoration:none; }
+.footer-link-sub:hover { color:var(--orange); }
+
+  .social-btn { width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; transition:all 0.2s; color:rgba(255,255,255,0.5); }
+  .social-btn:hover { border-color:var(--orange); color:var(--orange); }
+  .footer-bottom { padding-top:32px; margin-top:32px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; opacity:0.5; display:flex; justify-content:space-between; max-width:1200px; margin-left:auto; margin-right:auto; }
+  .text-center { text-align:center; }
+  .mt-2 { margin-top:32px; }
+  .mt-3 { margin-top:48px; }
+  .highlight { color:var(--red); font-weight:700; }
+  .heavy-tag { display:inline-block; background:var(--orange); color:white; padding:2px 10px; border-radius:4px; font-size:11px; font-weight:700; margin-left:8px; vertical-align:middle; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:all 0.6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .partner-strip { background:white; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:32px 0; text-align:center; overflow:hidden; }
+  .partner-label { font-size:12px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; }
+  .partner-logos { display:flex; gap:36px; justify-content:center; align-items:center; flex-wrap:wrap; }
+  .partner-logo { font-weight:800; font-size:20px; color:var(--text-light); opacity:0.5; transition:opacity 0.3s; }
+  .partner-logo:hover { opacity:1; }
+  .testimonial-slide { display:none; }
+  .testimonial-slide.active { display:block; }
+  .testimonial-stars { color:var(--orange); font-size:16px; margin-bottom:12px; }
+  .testimonial-quote { font-size:17px; line-height:1.8; font-style:italic; color:var(--text); margin-bottom:16px; }
+  .testimonial-author { font-weight:700; color:var(--red); font-size:15px; }
+  .testimonial-role { font-size:13px; color:var(--text-muted); }
+  .tab-bar { display:flex; gap:4px; margin-bottom:32px; background:var(--bg-warm); border-radius:14px; padding:6px; }
+  .tab-btn { flex:1; padding:14px 20px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; border:none; background:transparent; color:var(--text-light); transition:all 0.25s; text-align:center; }
+  .tab-btn.active { background:var(--red); color:white; box-shadow:0 4px 14px rgba(26,58,111,0.25); }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
+  .faq-item { border-bottom:1px solid var(--border); padding:20px 0; cursor:pointer; }
+  .faq-q { font-weight:700; font-size:16px; display:flex; justify-content:space-between; align-items:center; }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease,padding-top 0.35s; color:var(--text-light); line-height:1.7; font-size:15px; }
+  .faq-item.open .faq-a { max-height:300px; padding-top:12px; }
+  .faq-q .indicator { width:28px; height:28px; border-radius:50%; background:var(--bg-warm); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--red); flex-shrink:0; transition:transform 0.3s; }
+  .faq-item.open .faq-q .indicator { transform:rotate(45deg); background:var(--red); color:white; }
+  .form-row { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  .form-group { margin-bottom:16px; }
+  .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--text); }
+  .form-group input,.form-group select,.form-group textarea { width:100%; padding:12px 16px; border:1px solid var(--border); border-radius:8px; font-size:14px; color:var(--text); transition:border-color 0.2s; background:white; font-family:inherit; }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus { outline:none; border-color:var(--red); box-shadow:0 0 0 3px rgba(26,58,111,0.08); }
+  @media(max-width:992px) { .cards-2,.cards-3 { grid-template-columns:1fr; } .cards-4 { grid-template-columns:repeat(2,1fr); } .metric-row { grid-template-columns:repeat(2,1fr); } .footer-grid { grid-template-columns:repeat(2,1fr); } nav { padding:0 24px; } .nav-links { gap:16px; } .section-title { font-size:28px; } }
+  
+.pagination { display:flex; justify-content:center; gap:8px; padding:48px 0 20px; }
+.page-btn { display:inline-flex; align-items:center; justify-content:center; min-width:40px; height:40px; padding:0 14px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-weight:500; color:var(--text); text-decoration:none; transition:all 0.2s; background:white; }
+.page-btn:hover { border-color:var(--red); color:var(--red); }
+.page-btn.active { background:var(--red); color:white; border-color:var(--red); }
+.page-btn.disabled { opacity:0.35; pointer-events:none; }
+.subscribe-form { display:flex; gap:12px; max-width:480px; margin:24px auto 0; position:relative; z-index:1; }
+.subscribe-input { flex:1; padding:14px 18px; border:none; border-radius:10px; font-size:15px; outline:none; background:rgba(255,255,255,0.95); color:var(--text); }
+.subscribe-input::placeholder { color:var(--text-muted); }
+.subscribe-form .btn { white-space:nowrap; }
+@media(max-width:640px) { .subscribe-form { flex-direction:column; max-width:100%; } }
+  @media(max-width:640px) { .cards-4,.metric-row { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr; } .page-hero h1 { font-size:32px; } }
+</style><style>.page-hero::before{content:"";position:absolute;inset:0;background:url("https://haulmax.com/wp-content/uploads/2024/11/HAULMAX-1024x724.jpg") center/cover;opacity:0.12;}.process-flow{display:flex;gap:0;margin:32px 0;overflow-x:auto;}.process-step{flex:1;min-width:180px;text-align:center;padding:24px 16px;position:relative;}.process-step::after{content:"→";position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--orange);font-weight:700;}.process-step:last-child::after{display:none;}.process-icon{width:64px;height:64px;background:var(--red);border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;}.process-step h4{font-size:16px;margin-bottom:8px;}.process-step p{font-size:13px;color:var(--text-light);}.compare-table{width:100%;border-collapse:collapse;margin:24px 0;}.compare-table th{background:var(--red);color:white;padding:14px 16px;text-align:left;font-size:14px;}.compare-table td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:14px;}.compare-table tr:nth-child(even){background:#FAFAFA;}.compare-table .check{color:green;font-weight:700;}.compare-table .cross{color:var(--text-muted);}details{margin-bottom:12px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}details summary{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;background:#FAFAFA;list-style:none;}details summary::after{content:"+";float:right;font-size:20px;color:var(--red);}details[open] summary::after{content:"−";}details .detail-body{padding:16px 20px;font-size:14px;color:var(--text-light);line-height:1.7;}</style></head><body><nav><a href="index.html" class="nav-logo"><img src="logo.webp" alt="Haulmax" style="height:36px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index.html" class="">Home</a></li><li class="nav-dropdown"><a href="services-import.html" class="">Services</a><div class="nav-dropdown-menu"><a href="services-import.html">Import Services</a><a href="services-fulfillment.html">Fulfillment</a><a href="services-last-mile.html">Last-Mile Delivery</a></div></li><li class="nav-dropdown"><a href="tech-integrations.html" class="">Tools &amp; Integrations</a><div class="nav-dropdown-menu"><a href="tech-integrations.html">Platform Integrations</a><a href="tech-rate-calculator.html">Rate Calculator</a><a href="tech-tracker.html">Tracker</a><a href="tech-dim-calculator.html">DIM Calculator</a><a href="tech-shopify.html">Shopify</a><a href="tech-woocommerce.html">WooCommerce</a></div></li><li><a href="about.html" class="">About</a></li><li class="nav-dropdown"><a href="resources.html" class="active">Resources</a><div class="nav-dropdown-menu"><a href="resources-case-studies.html">Case Studies</a><a href="resources-blog.html">Blog</a></div></li><li><a href="careers.html" class="">Careers</a></li><li><a href="contact.html" class="">Contact</a></li></ul><a href="resources-zh.html" class="nav-lang">中文</a>
+<a href="contact.html" class="nav-cta">Get a Quote</a></nav><div class="page-hero"><div class="breadcrumb"><a href="index.html">Home</a> / Resources & Insights</div><h1>Knowledge That Moves Your Business <span style="color:var(--orange);">Forward</span></h1><p>Guides, benchmarks, and insights from operators who have been in your shoes. No fluff. No vendor pitches. Just practical logistics intelligence for ecommerce brands that want to stop losing money to bad fulfillment.</p></div><section class="section-gray"><div class="container"><div class="section-label">Featured Articles</div><h2 class="section-title">Logistics Intelligence <span style="color:var(--red);">for Ecommerce Operators</span></h2><div class="cards-3" style="margin-top:32px;"><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">1</div><h3>The Hidden Cost of "Industry Standard" Shrinkage</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">The 3PL industry considers 1-2% inventory loss acceptable. Here is what that actually costs a business shipping 10,000 orders per month — and how zero-shrinkage fulfillment changes the unit economics of your entire operation.</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">2</div><h3>US Customs Clearance: A Practical Guide for Cross-Border Sellers</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">Navigating FDA, FCC, CPSC, and other regulatory requirements. How to structure your shipments to avoid demurrage and detention charges that can wipe out your margin on a single container.</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">3</div><h3>Multi-Channel Fulfillment Without Multi-Channel Chaos</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">How to manage Amazon FBA, Walmart WFS, and DTC from a single inventory pool. The architecture of unified commerce — and why channel-specific SKUs are a trap that costs you inventory turns.</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">4</div><h3>Peak Season Playbook: Preparing for Q4 in July</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">Staffing, capacity planning, carrier allocation, and contingency planning. The decisions you make in summer determine whether Q4 is your best quarter or your worst customer service crisis.</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">5</div><h3>Returns Management as a Competitive Advantage</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">Processing, grading, refurbishment, and liquidation strategies. How leading brands turn reverse logistics from a cost center into a recovery channel — and why your returns policy is actually a marketing decision.</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on Facebook</a></div></div><div class="card fade-in" style="padding:32px;"><div style="background:var(--orange);width:48px;height:48px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:white;">6</div><h3>Drayage Decoded: What Happens Between Port and Warehouse</h3><p style="color:var(--text-light);font-size:14px;margin-bottom:12px;">The most overlooked step in cross-border logistics. Why a bad drayage partner costs more than the ocean freight itself — and how to evaluate port-to-warehouse partners on more than just price per mile.</p><div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;"><a href="#" style="background:#0A66C2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on LinkedIn</a><a href="#" style="background:#000;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on X</a><a href="#" style="background:#1877F2;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Share on Facebook</a></div></div></div></div></section>
+<div class="pagination">
+  <a href="#" class="page-btn disabled">Previous</a>
+  <a href="#" class="page-btn active">1</a>
+  <a href="#" class="page-btn">2</a>
+  <a href="#" class="page-btn">3</a>
+  <a href="#" class="page-btn">Next</a>
+</div>
+<section class="section-warm"><div class="container"><div class="section-label">Tools & Benchmarks</div><h2 class="section-title">Data-Driven <span style="color:var(--red);">Decision Making</span></h2><div class="cards-3" style="margin-top:32px;"><div class="card fade-in"><h3>Fulfillment Cost Calculator</h3><p style="color:var(--text-light);font-size:14px;">Estimate your total landed fulfillment cost — receiving, storage, pick-pack, shipping, and returns — based on your actual order profile. Most brands underestimate total cost by 20-30%.</p></div><div class="card fade-in"><h3>3PL Evaluation Scorecard</h3><p style="color:var(--text-light);font-size:14px;">A structured framework for evaluating logistics partners across 15 criteria including technology, scalability, transparency, and financial accountability. Do not choose a 3PL on price alone.</p></div><div class="card fade-in"><h3>Carrier Performance Benchmarks</h3><p style="color:var(--text-light);font-size:14px;">Quarterly analysis of US last-mile carrier performance: on-time rates, damage rates, cost-per-package trends, and regional reliability scores. Data-informed routing decisions start here.</p></div></div></div></section><section class="section-gray"><div class="container"><div class="section-label">Common Questions</div>
+<h2 class="section-title">You Asked. <span style="color:var(--red);">We Answered.</span></h2>
+<div style="max-width:720px;margin:32px auto 0;">
+<details><summary>How fast can you receive and process my inventory?</summary><div class="detail-body">We guarantee dock-to-stock in 48 hours. Most containers are received, broken down, and live in our WMS within 36 hours. Our 98% same-day container pickup rate and 20+ loading docks mean your freight is not sitting on a truck waiting for a dock door.</div></details>
+<details><summary>What platforms and marketplaces do you integrate with?</summary><div class="detail-body">We have native integrations with Amazon (FBA and FBM), Walmart, eBay, Wayfair, TikTok Shop, SHEIN, Shopify, BigCommerce, WooCommerce, and Magento. For custom platforms, our engineering team builds API/EDI connections — typical turnaround is 2-3 weeks.</div></details>
+<details><summary>Do you really pay for lost or damaged inventory?</summary><div class="detail-body">Yes. Our Zero Shrinkage Guarantee is contractual — not marketing. We reimburse lost or damaged goods at your retail value within 30 days. Our actual loss rate is under 0.1%, so we put our money where our mouth is.</div></details>
+<details><summary>What is your minimum order volume?</summary><div class="detail-body">We work with brands processing 500+ orders per month. If you are just starting out, we recommend reaching out anyway — our account team can advise on the right timing and help you plan your logistics roadmap even if you are not ready to onboard today.</div></details>
+<details><summary>How do you handle peak season (Q4, Prime Day, etc.)?</summary><div class="detail-body">We scale staffing and shifts 60-90 days ahead of major events. Our WMS includes capacity forecasting tools that alert us — and you — when volumes approach thresholds. During peak, we maintain the same SLA guarantees. No exceptions.</div></details>
+</div></div></section><section class="section-warm"><div class="container text-center"><div class="section-label">Stay Updated</div><h2 class="section-title">Subscribe for <span style="color:var(--red);">Logistics Insights</span></h2><p class="section-sub" style="margin:0 auto 32px;">Industry insights, operational tips, and logistics trends — delivered straight to your inbox every month.</p><div style="max-width:560px;margin:0 auto;background:var(--white);border-radius:20px;padding:40px;border:1px solid var(--border);box-shadow:var(--shadow);"><div class="form-group"><label>Email <span style="color:var(--red);">*</span></label><input type="email" placeholder="you@company.com"></div><div class="form-row"><div class="form-group"><label>Name <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label><input placeholder="Your name"></div><div class="form-group"><label>Company <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label><input placeholder="Company name"></div></div><button class="btn btn-red" style="width:100%;padding:16px;">Subscribe</button></div></div></section><div class="cta-banner fade-in"><h2>Want This Directly In Your Inbox?</h2><p>Monthly logistics intelligence, straight from our ops team.</p><form class="subscribe-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');"><input type="email" placeholder="Your email address" required class="subscribe-input"><button type="submit" class="btn btn-white">Subscribe</button></form></div><footer class="footer"><div class="footer-grid"><div class="footer-col"><img src="logo.webp" alt="Haulmax" class="footer-logo-img"><p>Your Last-Mile Bridge to the US Market. Founded by ecommerce operators, built for scaling businesses.</p><p style="opacity:0.4;">10401 7th St, Rancho Cucamonga, CA 91730<br>+1 (310) 363-0588</p><div class="social-links" style="margin-top:12px;"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">X</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">YT</a><a href="#" class="social-btn">We</a></div></div><div class="footer-col"><h5>Services</h5><a href="services-import.html">Import Services</a><a href="services-fulfillment.html">Fulfillment</a><a href="services-last-mile.html">Last-Mile Delivery</a></div><div class="footer-col"><h5>Tools &amp; Integrations</h5><a href="tech-integrations.html">Platform Integrations</a><a href="tech-rate-calculator.html">Rate Calculator</a><a href="tech-tracker.html">Tracker</a><a href="tech-dim-calculator.html">DIM Calculator</a><a href="tech-shopify.html">Shopify</a><a href="tech-woocommerce.html">WooCommerce</a></div><div class="footer-col"><a href="about.html" class="footer-link-main">About Us</a><span class="footer-link-main" style="cursor:default;">Resources</span><a href="resources.html" class="footer-link-sub">Case Studies</a><a href="resources.html" class="footer-link-sub">Blog</a><a href="careers.html" class="footer-link-main">Careers</a><a href="contact.html" class="footer-link-main">Contact</a></div></div><div class="footer-bottom"><span>&copy; 2026 Haulmax, Inc. All rights reserved.</span><span><a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Service</a></span></div></footer><script>
+window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10)});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}));
+(function(){const slides=document.querySelectorAll('.testimonial-slide');if(slides.length>1){let i=0;setInterval(()=>{slides[i].classList.remove('active');i=(i+1)%slides.length;slides[i].classList.add('active')},5000)}})();
+</script></body></html>

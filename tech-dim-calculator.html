@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Dimensional Weight Calculator — Haulmax</title><meta name="description" content="Calculate dimensional weight and compare UPS, FedEx and USPS billed weights and zone-based rates instantly."><style>
+  :root {
+    --red: #1A3A6F; --red-dark: #142952; --red-light: #3D6FB5;
+    --orange: #E87522; --orange-light: #F0A060; --navy: #1A3A6F;
+    --white: #FFFFFF; --bg: #FAFAFA; --bg-warm: #F0F4FA;
+    --text: #1A1A1A; --text-light: #555555; --text-muted: #999999;
+    --border: #E8E8E8; --shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter','Segoe UI',-apple-system,sans-serif; color:var(--text); background:var(--white); line-height:1.6; overflow-x:hidden; padding-top:70px; }
+  a { text-decoration:none; color:inherit; }
+  img { max-width:100%; height:auto; display:block; }
+  .container { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .section-label { display:inline-block; font-size:11px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:3px; margin-bottom:12px; background:var(--bg-warm); padding:4px 12px; border-radius:4px; }
+  .section-title { font-size:38px; font-weight:800; letter-spacing:-0.8px; line-height:1.15; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-light); max-width:640px; line-height:1.7; }
+  nav { position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); z-index:1000; padding:0 60px; height:70px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid transparent; transition:all 0.3s; }
+  nav.scrolled { border-bottom-color:var(--border); box-shadow:0 2px 20px rgba(0,0,0,0.06); }
+  .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text); transition:color 0.15s; padding:4px 0; }
+  .nav-links a:hover, .nav-links a.active { color:var(--red); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:-12px; background:white; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.12); min-width:220px; padding:10px 0; z-index:10; }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:13px; color:var(--text-light); white-space:nowrap; }
+  .nav-dropdown-menu a:hover { background:var(--bg-warm); color:var(--red); }
+  .nav-cta { background:var(--red); color:var(--white); padding:10px 24px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-cta:hover { background:var(--red-dark); transform:translateY(-1px); }
+  .nav-lang { border:1px solid var(--red); color:var(--red); padding:9px 16px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-lang:hover { background:var(--red); color:white; }
+  .page-hero { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; padding:104px 60px 88px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 45%); }
+  .page-hero h1 { font-size:46px; font-weight:800; letter-spacing:-1px; position:relative; margin-bottom:18px; line-height:1.18; }
+  .page-hero p { font-size:17px; opacity:0.92; max-width:660px; margin:0 auto 32px; position:relative; line-height:1.7; }
+  .hero-cta { display:flex; gap:16px; justify-content:center; position:relative; flex-wrap:wrap; }
+  .breadcrumb { font-size:13px; opacity:0.6; margin-bottom:16px; position:relative; }
+  .breadcrumb a { color:white; text-decoration:underline; }
+  .cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .cards-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .card { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.25s; }
+  .card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .card-3d { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.3s; }
+  .card-3d:hover { box-shadow:0 16px 48px rgba(0,0,0,0.08); transform:translateY(-6px); border-color:transparent; }
+  .icon-3d { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+  .icon-3d.red { background:linear-gradient(135deg,var(--red),var(--red-light)); color:white; }
+  .icon-3d.orange { background:linear-gradient(135deg,var(--orange),var(--orange-light)); color:white; }
+  .icon-3d.navy { background:linear-gradient(135deg,var(--navy),#1A3A6F); color:white; }
+  .icon-3d svg { width:26px; height:26px; }
+  .metric-row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .metric-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:36px 24px; text-align:center; transition:all 0.2s; }
+  .metric-card:hover { box-shadow:0 8px 32px rgba(0,0,0,0.05); transform:translateY(-2px); }
+  .metric-card .num { font-size:44px; font-weight:800; color:var(--red); letter-spacing:-1.5px; line-height:1; }
+  .metric-card .label { font-size:13px; color:var(--text-light); margin-top:10px; font-weight:600; }
+  .guarantee-card { background:white; border-radius:16px; padding:32px; text-align:center; border:1px solid var(--border); transition:all 0.25s; }
+  .guarantee-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:var(--red); }
+  .guarantee-card .g-icon { width:48px; height:48px; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:var(--bg-warm); color:var(--red); }
+  .guarantee-card .g-icon svg { width:24px; height:24px; }
+  .guarantee-card h3 { font-size:17px; font-weight:700; color:var(--red); margin-bottom:8px; }
+  .guarantee-card p { font-size:14px; color:var(--text-light); line-height:1.6; }
+  .btn { display:inline-block; padding:14px 32px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; transition:all 0.2s; text-align:center; }
+  .btn-red { background:var(--red); color:white; }
+  .btn-red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(26,58,111,0.3); }
+  .btn-orange { background:var(--orange); color:white; }
+  .btn-orange:hover { background:#C85E1A; transform:translateY(-1px); box-shadow:0 6px 20px rgba(232,117,34,0.3); }
+  .btn-white { background:white; color:var(--red); }
+  .btn-white:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,255,255,0.25); }
+  .btn-outline { border:2px solid var(--red); color:var(--red); background:transparent; }
+  .btn-outline:hover { background:var(--red); color:white; }
+  section { padding:88px 0; }
+  .section-dark { background:var(--navy); color:white; }
+  .section-dark .section-title { color:white; }
+  .section-dark .section-label { background:rgba(255,255,255,0.1); color:var(--orange); }
+  .section-gray { background:var(--bg); }
+  .section-warm { background:var(--bg-warm); }
+  .cta-banner { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; text-align:center; padding:88px 60px; position:relative; overflow:hidden; }
+  .cta-banner h2 { font-size:40px; font-weight:800; letter-spacing:-0.8px; position:relative; }
+  .cta-banner p { font-size:17px; opacity:0.9; margin:14px 0 32px; position:relative; }
+  .footer { background:#0D1F3C; color:rgba(255,255,255,0.7); padding:64px 60px 32px; }
+  .footer-grid { display:grid; grid-template-columns:1.3fr 1fr 1.2fr 1fr; gap:48px; max-width:1200px; margin:0 auto; align-items:flex-start; }
+.footer-logo-img { height:30px; width:auto; display:block; margin-bottom:16px; }
+  .footer h5 { color:white; font-size:15px; margin-bottom:16px; font-weight:700; }
+  .footer a { display:block; color:rgba(255,255,255,0.5); font-size:13px; margin-bottom:8px; line-height:1.5; transition:color 0.2s; }
+  .footer a:hover { color:var(--orange); }
+  .footer-col p { font-size:13px; line-height:1.7; margin-bottom:12px; }
+  .social-links { display:flex; gap:10px; }
+.footer-link-main { display:block; font-size:15px; font-weight:700; color:white; margin-bottom:10px; transition:color 0.2s; text-decoration:none; }
+.footer-link-main:hover { color:var(--orange); }
+.footer-link-sub { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,0.5); margin-bottom:6px; margin-left:0; transition:color 0.2s; text-decoration:none; }
+.footer-link-sub:hover { color:var(--orange); }
+
+  .social-btn { width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; transition:all 0.2s; color:rgba(255,255,255,0.5); }
+  .social-btn:hover { border-color:var(--orange); color:var(--orange); }
+  .footer-bottom { padding-top:32px; margin-top:32px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; opacity:0.5; display:flex; justify-content:space-between; max-width:1200px; margin-left:auto; margin-right:auto; }
+  .text-center { text-align:center; }
+  .mt-2 { margin-top:32px; }
+  .mt-3 { margin-top:48px; }
+  .highlight { color:var(--red); font-weight:700; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:all 0.6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .calc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+  .calc-form { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; }
+  .calc-form label { display:block; font-size:13px; font-weight:600; color:var(--text-light); margin-bottom:6px; }
+  .calc-form input, .calc-form select { width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:15px; margin-bottom:18px; font-family:inherit; }
+  .calc-form input:focus, .calc-form select:focus { outline:none; border-color:var(--red); }
+  .calc-result { background:var(--navy); color:white; border-radius:16px; padding:36px; }
+  .calc-result h3 { font-size:20px; font-weight:700; margin-bottom:20px; }
+  .result-line { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.12); font-size:15px; }
+  .result-line:last-child { border-bottom:none; }
+  .result-line .v { font-weight:700; color:var(--orange); }
+  .result-note { font-size:13px; opacity:0.7; margin-top:16px; line-height:1.6; }
+  .zone-table { width:100%; border-collapse:collapse; margin-top:24px; background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.04); }
+  .zone-table th, .zone-table td { padding:14px 16px; text-align:center; font-size:14px; border-bottom:1px solid var(--border); }
+  .zone-table th { background:var(--navy); color:white; font-weight:600; }
+  .zone-table td:first-child { font-weight:700; color:var(--text); }
+  .zone-table tr:last-child td { border-bottom:none; }
+  .zone-table tbody tr:hover { background:var(--bg-warm); }
+  .faq-item { background:white; border:1px solid var(--border); border-radius:14px; padding:24px 28px; margin-bottom:16px; transition:all 0.2s; }
+  .faq-item:hover { box-shadow:0 8px 28px rgba(0,0,0,0.05); }
+  .faq-item h3 { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .faq-item p { font-size:14px; color:var(--text-light); line-height:1.7; }
+  .callout { background:var(--bg-warm); border-left:4px solid var(--red); border-radius:0 12px 12px 0; padding:24px 28px; margin-top:32px; }
+  .callout p { font-size:15px; color:var(--text); line-height:1.7; }
+  .callout strong { color:var(--red); }
+  @media(max-width:992px) { .cards-2,.cards-3,.calc-wrap { grid-template-columns:1fr; } .cards-4 { grid-template-columns:repeat(2,1fr); } .metric-row { grid-template-columns:repeat(2,1fr); } .footer-grid { grid-template-columns:repeat(2,1fr); } nav { padding:0 24px; } .nav-links { gap:16px; } .section-title { font-size:28px; } .page-hero h1 { font-size:34px; } }
+  @media(max-width:640px) { .cards-4,.metric-row { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr; } }
+</style></head><body><nav><a href="index.html" class="nav-logo"><img src="logo.webp" alt="Haulmax" style="height:36px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index.html" class="">Home</a></li><li class="nav-dropdown"><a href="services-import.html" class="">Services</a><div class="nav-dropdown-menu"><a href="services-import.html">Import Services</a><a href="services-fulfillment.html">Fulfillment</a><a href="services-last-mile.html">Last-Mile Delivery</a></div></li><li class="nav-dropdown"><a href="tech-integrations.html" class="active">Tools &amp; Integrations</a><div class="nav-dropdown-menu"><a href="tech-integrations.html">Platform Integrations</a><a href="tech-rate-calculator.html">Rate Calculator</a><a href="tech-tracker.html">Tracker</a><a href="tech-dim-calculator.html">DIM Calculator</a><a href="tech-shopify.html">Shopify</a><a href="tech-woocommerce.html">WooCommerce</a></div></li><li><a href="about.html" class="">About</a></li><li class="nav-dropdown"><a href="resources.html" class="">Resources</a><div class="nav-dropdown-menu"><a href="resources.html">Case Studies</a><a href="resources.html">Blog</a></div></li><li><a href="careers.html" class="">Careers</a></li><li><a href="contact.html" class="">Contact</a></li></ul><a href="tech-dim-calculator-zh.html" class="nav-lang">中文</a>
+<a href="contact.html" class="nav-cta">Get a Quote</a></nav><div class="page-hero"><div class="breadcrumb"><a href="index.html">Home</a> / Technology / DIM Calculator</div><h1>Dimensional Weight Calculator</h1><p>Know your billed weight before you ship. Compare UPS, FedEx and USPS in seconds.</p><div class="hero-cta"><a href="contact.html" class="btn btn-white">Get a Quote</a><a href="tech-rate-calculator.html" class="btn btn-outline" style="color:white;border-color:white;">Rate Calculator</a></div></div><section class="section-gray"><div class="container"><div class="section-label">Calculator</div><h2 class="section-title">DIM Weight &amp; <span style="color:var(--red);">Billed Weight</span></h2><div class="calc-wrap" style="margin-top:32px;"><div class="calc-form fade-in"><label>Length (in)</label><input id="dim-l" type="number" min="0" step="0.1" value="18"><label>Width (in)</label><input id="dim-w" type="number" min="0" step="0.1" value="14"><label>Height (in)</label><input id="dim-h" type="number" min="0" step="0.1" value="12"><label>Actual weight (lb)</label><input id="dim-aw" type="number" min="0" step="0.1" value="6"><label>Destination zone</label><select id="dim-zone"><option value="2">Zone 2</option><option value="3">Zone 3</option><option value="4">Zone 4</option><option value="5" selected>Zone 5</option><option value="6">Zone 6</option><option value="7">Zone 7</option><option value="8">Zone 8</option></select><button id="dim-btn" class="btn btn-red" style="width:100%;margin-top:8px;">Calculate</button></div><div class="calc-result fade-in"><h3>Results</h3><div class="result-line"><span>Package volume</span><span class="v" id="dim-vol">0 in³</span></div><div class="result-line"><span>FedEx (factor 139)</span><span class="v" id="dim-fedex">—</span></div><div class="result-line"><span>UPS (factor 139)</span><span class="v" id="dim-ups">—</span></div><div class="result-line"><span>USPS (factor 166)</span><span class="v" id="dim-usps">—</span></div><p class="result-note">Billed weight = greater of DIM weight or actual weight. USPS factor applies to Zone 5+.</p></div></div><h2 class="section-title" style="margin-top:56px;">Shipping Cost by Zone</h2><table class="zone-table fade-in"><thead><tr><th>Carrier</th><th>Zone 2</th><th>Zone 4</th><th>Zone 5</th><th>Zone 7</th><th>Zone 8</th></tr></thead><tbody><tr><td>FedEx</td><td>$—</td><td>$—</td><td id="z-f">$—</td><td>$—</td><td>$—</td></tr><tr><td>UPS</td><td>$—</td><td>$—</td><td id="z-u">$—</td><td>$—</td><td>$—</td></tr><tr><td>USPS</td><td>$—</td><td>$—</td><td id="z-p">$—</td><td>$—</td><td>$—</td></tr></tbody></table><p class="result-note">Demo rates for the selected zone only; full Zone 2-8 comparison available in the live tool.</p></div></section><section><div class="container"><div class="section-label">FAQ</div><h2 class="section-title">Frequently Asked Questions</h2><div style="margin-top:32px;"><div class="faq-item fade-in"><h3>What is dimensional weight?</h3><p>Dimensional (DIM) weight is a pricing formula carriers use to charge by package volume rather than scale weight. FedEx, USPS and UPS adopted it in 2015 to account for space packages occupy in transit.</p></div><div class="faq-item fade-in"><h3>Dimensional weight vs volumetric weight?</h3><p>They describe the same concept and are used interchangeably. Volumetric weight is the more common term outside the US; DIM weight is the US carrier term.</p></div><div class="faq-item fade-in"><h3>Why does dimensional weight pricing exist?</h3><p>E-commerce growth made trailer and aircraft space a scarce resource. Charging for volume ensures lightweight-but-bulky parcels pay their fair share of capacity.</p></div><div class="faq-item fade-in"><h3>What is a DIM factor?</h3><p>The DIM factor is the divisor each carrier sets (and updates yearly). Divide cubic inches by the factor to get DIM weight. Lower factors mean higher billed weights.</p></div><div class="faq-item fade-in"><h3>How do I calculate dimensional weight?</h3><p>Multiply length x width x height (inches), divide by the carrier DIM factor, and round up. The carrier bills the greater of DIM weight or actual weight.</p></div><div class="faq-item fade-in"><h3>2024 carrier DIM factors</h3><p>FedEx: 139. UPS: 139 daily / 166 retail. USPS: 166, applied to Zone 5 and above. 3PLs like Haulmax negotiate more favorable factors that can further reduce your cost.</p></div></div><div class="callout fade-in"><p><strong>Haulmax's volume pricing discounts can save you (and your customers) on shipping.</strong> We negotiate volume pricing and pass the savings on to you — and 3PLs negotiate more favorable DIM factors that can further reduce your cost.</p></div></div></section><div class="cta-banner fade-in"><h2>Ready to Get Started?</h2><p>Let's talk about how Haulmax can take the weight off your shoulders.</p><a href="contact.html" class="btn btn-white">Let's Talk</a></div><footer class="footer"><div class="footer-grid"><div class="footer-col"><img src="logo.webp" alt="Haulmax" class="footer-logo-img"><p>Your Last-Mile Bridge to the US Market. Founded by ecommerce operators, built for scaling businesses.</p><p style="opacity:0.4;">10401 7th St, Rancho Cucamonga, CA 91730<br>+1 (310) 363-0588</p><div class="social-links" style="margin-top:12px;"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">X</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">YT</a><a href="#" class="social-btn">We</a></div></div><div class="footer-col"><h5>Services</h5><a href="services-import.html">Import Services</a><a href="services-fulfillment.html">Fulfillment</a><a href="services-last-mile.html">Last-Mile Delivery</a></div><div class="footer-col"><h5>Tools &amp; Integrations</h5><a href="tech-integrations.html">Platform Integrations</a><a href="tech-rate-calculator.html">Rate Calculator</a><a href="tech-tracker.html">Tracker</a><a href="tech-dim-calculator.html">DIM Calculator</a><a href="tech-shopify.html">Shopify</a><a href="tech-woocommerce.html">WooCommerce</a></div><div class="footer-col"><a href="about.html" class="footer-link-main">About Us</a><span class="footer-link-main" style="cursor:default;">Resources</span><a href="resources.html" class="footer-link-sub">Case Studies</a><a href="resources.html" class="footer-link-sub">Blog</a><a href="careers.html" class="footer-link-main">Careers</a><a href="contact.html" class="footer-link-main">Contact</a></div></div><div class="footer-bottom"><span>&copy; 2026 Haulmax, Inc. All rights reserved.</span><span><a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Service</a></span></div></footer><script>
+window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10)});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script><script>
+function calcDim(){
+  const l=parseFloat(document.getElementById('dim-l').value)||0;
+  const w=parseFloat(document.getElementById('dim-w').value)||0;
+  const h=parseFloat(document.getElementById('dim-h').value)||0;
+  const aw=parseFloat(document.getElementById('dim-aw').value)||0;
+  const vol=l*w*h;
+  const fedex=Math.ceil(vol/139), ups=Math.ceil(vol/139), usps=Math.ceil(vol/166);
+  const billedF=Math.max(fedex,aw), billedU=Math.max(ups,aw), billedP=Math.max(usps,aw);
+  document.getElementById('dim-vol').textContent=vol.toFixed(0)+' in³';
+  document.getElementById('dim-fedex').textContent=fedex+' lb (billed '+billedF+')';
+  document.getElementById('dim-ups').textContent=ups+' lb (billed '+billedU+')';
+  document.getElementById('dim-usps').textContent=usps+' lb (billed '+billedP+')';
+  const z=parseInt(document.getElementById('dim-zone').value)||5;
+  const base=5.5, perLb=0.55, mult=1+(z-2)*0.12;
+  const costF=(base+billedF*perLb)*mult, costU=(base+billedU*perLb)*mult, costP=(base+billedP*perLb)*mult;
+  document.getElementById('z-f').textContent='$'+costF.toFixed(2);
+  document.getElementById('z-u').textContent='$'+costU.toFixed(2);
+  document.getElementById('z-p').textContent='$'+costP.toFixed(2);
+}
+document.getElementById('dim-btn').addEventListener('click', calcDim);
+</script></body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>平台集成 — Haulmax | 让您的店铺与我们的系统无缝连接</title><meta name="description" content="Haulmax 已原生集成 Shopify、BigCommerce、WooCommerce、Magento 等 9 大电商平台。没有您的平台？我们为您定制 API。"><style>
+  :root {
+    --red: #1A3A6F; --red-dark: #142952; --red-light: #3D6FB5;
+    --orange: #E87522; --orange-light: #F0A060; --navy: #1A3A6F;
+    --white: #FFFFFF; --bg: #FAFAFA; --bg-warm: #F0F4FA;
+    --text: #1A1A1A; --text-light: #555555; --text-muted: #999999;
+    --border: #E8E8E8; --shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter','Segoe UI',-apple-system,sans-serif; color:var(--text); background:var(--white); line-height:1.6; overflow-x:hidden; padding-top:70px; }
+  a { text-decoration:none; color:inherit; }
+  img { max-width:100%; height:auto; display:block; }
+  .container { max-width:1200px; margin:0 auto; padding:0 40px; }
+  .section-label { display:inline-block; font-size:11px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:3px; margin-bottom:12px; background:var(--bg-warm); padding:4px 12px; border-radius:4px; }
+  .section-title { font-size:38px; font-weight:800; letter-spacing:-0.8px; line-height:1.15; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-light); max-width:640px; line-height:1.7; }
+  nav { position:fixed; top:0; left:0; right:0; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); z-index:1000; padding:0 60px; height:70px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid transparent; transition:all 0.3s; }
+  nav.scrolled { border-bottom-color:var(--border); box-shadow:0 2px 20px rgba(0,0,0,0.06); }
+  .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text); transition:color 0.15s; padding:4px 0; }
+  .nav-links a:hover, .nav-links a.active { color:var(--red); }
+  .nav-dropdown { position:relative; }
+  .nav-dropdown-menu { display:none; position:absolute; top:100%; left:-12px; background:white; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.12); min-width:220px; padding:10px 0; z-index:10; }
+  .nav-dropdown:hover .nav-dropdown-menu { display:block; }
+  .nav-dropdown-menu a { display:block; padding:10px 20px; font-size:13px; color:var(--text-light); white-space:nowrap; }
+  .nav-dropdown-menu a:hover { background:var(--bg-warm); color:var(--red); }
+  .nav-cta { background:var(--red); color:var(--white); padding:10px 24px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-cta:hover { background:var(--red-dark); transform:translateY(-1px); }
+  .nav-lang { border:1px solid var(--red); color:var(--red); padding:9px 16px; border-radius:8px; font-weight:600; font-size:14px; transition:all 0.2s; }
+  .nav-lang:hover { background:var(--red); color:white; }
+  .page-hero { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; padding:104px 60px 88px; text-align:center; position:relative; overflow:hidden; }
+  .page-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 45%); }
+  .page-hero h1 { font-size:46px; font-weight:800; letter-spacing:-1px; position:relative; margin-bottom:18px; line-height:1.18; }
+  .page-hero p { font-size:17px; opacity:0.92; max-width:660px; margin:0 auto 32px; position:relative; line-height:1.7; }
+  .hero-cta { display:flex; gap:16px; justify-content:center; position:relative; flex-wrap:wrap; }
+  .breadcrumb { font-size:13px; opacity:0.6; margin-bottom:16px; position:relative; }
+  .breadcrumb a { color:white; text-decoration:underline; }
+  .cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .cards-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .card { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.25s; }
+  .card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .card-3d { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.3s; }
+  .card-3d:hover { box-shadow:0 16px 48px rgba(0,0,0,0.08); transform:translateY(-6px); border-color:transparent; }
+  .icon-3d { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow:0 4px 14px rgba(0,0,0,0.1); }
+  .icon-3d.red { background:linear-gradient(135deg,var(--red),var(--red-light)); color:white; }
+  .icon-3d.orange { background:linear-gradient(135deg,var(--orange),var(--orange-light)); color:white; }
+  .icon-3d.navy { background:linear-gradient(135deg,var(--navy),#1A3A6F); color:white; }
+  .icon-3d svg { width:26px; height:26px; }
+  .metric-row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .metric-card { background:var(--white); border:1px solid var(--border); border-radius:14px; padding:36px 24px; text-align:center; transition:all 0.2s; }
+  .metric-card:hover { box-shadow:0 8px 32px rgba(0,0,0,0.05); transform:translateY(-2px); }
+  .metric-card .num { font-size:44px; font-weight:800; color:var(--red); letter-spacing:-1.5px; line-height:1; }
+  .metric-card .label { font-size:13px; color:var(--text-light); margin-top:10px; font-weight:600; }
+  .guarantee-card { background:white; border-radius:16px; padding:32px; text-align:center; border:1px solid var(--border); transition:all 0.25s; }
+  .guarantee-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:var(--red); }
+  .guarantee-card .g-icon { width:48px; height:48px; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:var(--bg-warm); color:var(--red); }
+  .guarantee-card .g-icon svg { width:24px; height:24px; }
+  .guarantee-card h3 { font-size:17px; font-weight:700; color:var(--red); margin-bottom:8px; }
+  .guarantee-card p { font-size:14px; color:var(--text-light); line-height:1.6; }
+  .btn { display:inline-block; padding:14px 32px; border-radius:10px; font-weight:600; font-size:15px; cursor:pointer; transition:all 0.2s; text-align:center; }
+  .btn-red { background:var(--red); color:white; }
+  .btn-red:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 6px 20px rgba(26,58,111,0.3); }
+  .btn-orange { background:var(--orange); color:white; }
+  .btn-orange:hover { background:#C85E1A; transform:translateY(-1px); box-shadow:0 6px 20px rgba(232,117,34,0.3); }
+  .btn-white { background:white; color:var(--red); }
+  .btn-white:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(255,255,255,0.25); }
+  .btn-outline { border:2px solid var(--red); color:var(--red); background:transparent; }
+  .btn-outline:hover { background:var(--red); color:white; }
+  section { padding:88px 0; }
+  .section-dark { background:var(--navy); color:white; }
+  .section-dark .section-title { color:white; }
+  .section-dark .section-label { background:rgba(255,255,255,0.1); color:var(--orange); }
+  .section-gray { background:var(--bg); }
+  .section-warm { background:var(--bg-warm); }
+  .cta-banner { background:linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%); color:white; text-align:center; padding:88px 60px; position:relative; overflow:hidden; }
+  .cta-banner h2 { font-size:40px; font-weight:800; letter-spacing:-0.8px; position:relative; }
+  .cta-banner p { font-size:17px; opacity:0.9; margin:14px 0 32px; position:relative; }
+  .footer { background:#0D1F3C; color:rgba(255,255,255,0.7); padding:64px 60px 32px; }
+  .footer-grid { display:grid; grid-template-columns:1.3fr 1fr 1.2fr 1fr; gap:48px; max-width:1200px; margin:0 auto; align-items:flex-start; }
+.footer-logo-img { height:30px; width:auto; display:block; margin-bottom:16px; }
+  .footer h5 { color:white; font-size:15px; margin-bottom:16px; font-weight:700; }
+  .footer a { display:block; color:rgba(255,255,255,0.5); font-size:13px; margin-bottom:8px; line-height:1.5; transition:color 0.2s; }
+  .footer a:hover { color:var(--orange); }
+  .footer-col p { font-size:13px; line-height:1.7; margin-bottom:12px; }
+  .social-links { display:flex; gap:10px; }
+.footer-link-main { display:block; font-size:15px; font-weight:700; color:white; margin-bottom:10px; transition:color 0.2s; text-decoration:none; }
+.footer-link-main:hover { color:var(--orange); }
+.footer-link-sub { display:block; font-size:13px; font-weight:400; color:rgba(255,255,255,0.5); margin-bottom:6px; margin-left:0; transition:color 0.2s; text-decoration:none; }
+.footer-link-sub:hover { color:var(--orange); }
+
+  .social-btn { width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; transition:all 0.2s; color:rgba(255,255,255,0.5); }
+  .social-btn:hover { border-color:var(--orange); color:var(--orange); }
+  .footer-bottom { padding-top:32px; margin-top:32px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; opacity:0.5; display:flex; justify-content:space-between; max-width:1200px; margin-left:auto; margin-right:auto; }
+  .text-center { text-align:center; }
+  .mt-2 { margin-top:32px; }
+  .mt-3 { margin-top:48px; }
+  .highlight { color:var(--red); font-weight:700; }
+  .fade-in { opacity:0; transform:translateY(24px); transition:all 0.6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+  .platform-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .platform-card { background:white; border:1px solid var(--border); border-radius:16px; padding:32px; display:flex; align-items:center; gap:18px; transition:all 0.25s; }
+  .platform-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .platform-card .p-logo { width:52px; height:52px; border-radius:12px; background:var(--bg-warm); color:var(--red); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px; flex-shrink:0; }
+  .platform-card h3 { font-size:17px; font-weight:700; }
+  .platform-card p { font-size:13px; color:var(--text-light); }
+  .feature-row { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .feature-card { background:white; border:1px solid var(--border); border-radius:16px; padding:36px; transition:all 0.25s; }
+  .feature-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.06); transform:translateY(-4px); border-color:transparent; }
+  .feature-card .f-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+  .feature-card .f-icon svg { width:26px; height:26px; }
+  .feature-card h3 { font-size:18px; font-weight:700; margin-bottom:8px; }
+  .feature-card p { font-size:14px; color:var(--text-light); line-height:1.7; }
+  .callout { background:var(--bg-warm); border-left:4px solid var(--red); border-radius:0 12px 12px 0; padding:24px 28px; margin-top:32px; }
+  .callout p { font-size:15px; color:var(--text); line-height:1.7; }
+  .callout strong { color:var(--red); }
+  @media(max-width:992px) { .cards-2,.cards-3,.feature-row { grid-template-columns:1fr; } .cards-4 { grid-template-columns:repeat(2,1fr); } .metric-row { grid-template-columns:repeat(2,1fr); } .platform-grid { grid-template-columns:repeat(2,1fr); } .footer-grid { grid-template-columns:repeat(2,1fr); } nav { padding:0 24px; } .nav-links { gap:16px; } .section-title { font-size:28px; } .page-hero h1 { font-size:34px; } }
+  @media(max-width:640px) { .cards-4,.metric-row,.platform-grid { grid-template-columns:1fr; } .footer-grid { grid-template-columns:1fr; } }
+</style></head><body><nav><a href="index-zh.html" class="nav-logo"><img src="logo.webp" alt="Haulmax" style="height:36px;width:auto;display:block;"></a><ul class="nav-links"><li><a href="index-zh.html" class="">首页</a></li><li class="nav-dropdown"><a href="services-import-zh.html" class="">服务</a><div class="nav-dropdown-menu"><a href="services-import-zh.html">进口服务</a><a href="services-fulfillment-zh.html">一件代发</a><a href="services-last-mile-zh.html">尾程配送</a></div></li><li class="nav-dropdown"><a href="tech-integrations-zh.html" class="active">工具与集成</a><div class="nav-dropdown-menu"><a href="tech-integrations-zh.html">平台集成</a><a href="tech-rate-calculator-zh.html">运费计算器</a><a href="tech-tracker-zh.html">货运追踪</a><a href="tech-dim-calculator-zh.html">体积重量计算器</a><a href="tech-shopify-zh.html">Shopify</a><a href="tech-woocommerce-zh.html">WooCommerce</a></div></li><li><a href="about-zh.html" class="">关于</a></li><li class="nav-dropdown"><a href="resources-zh.html" class="">资源</a><div class="nav-dropdown-menu"><a href="resources-zh.html">案例研究</a><a href="resources-zh.html">博客</a></div></li><li><a href="careers-zh.html" class="">招聘</a></li><li><a href="contact-zh.html" class="">联系</a></li></ul><a href="tech-integrations.html" class="nav-lang">EN</a>
+<a href="contact-zh.html" class="nav-cta">获取报价</a></nav><div class="page-hero"><div class="breadcrumb"><a href="index-zh.html">首页</a> / 技术 / 平台集成</div><h1>平台集成</h1><p>您的店铺，我们的系统——无缝连接。无论您在哪个平台销售，我们都能与履约引擎实时同步。</p><div class="hero-cta"><a href="contact-zh.html" class="btn btn-white">获取报价</a><a href="tech-rate-calculator-zh.html" class="btn btn-outline" style="color:white;border-color:white;">试用运费计算器</a></div></div><section class="section-gray"><div class="container"><div class="section-label">9 大原生集成</div><h2 class="section-title">适配您系统的 <span style="color:var(--red);">履约服务</span></h2><p class="section-sub" style="margin-bottom:32px;">我们为所有主流电商平台提供 API。订单自动流入，库存与轨迹实时回传。</p><div class="platform-grid"><div class="platform-card fade-in"><div class="p-logo">S</div><div><h3>Shopify</h3><p>订单、库存与物流轨迹原生同步。</p></div></div>
+<div class="platform-card fade-in"><div class="p-logo">B</div><div><h3>BigCommerce</h3><p>直连 API，库存实时更新。</p></div></div>
+<div class="platform-card fade-in"><div class="p-logo">W</div><div><h3>WooCommerce</h3><p>开源友好，Webhook 主动推送。</p></div></div>
+<div class="platform-card fade-in"><div class="p-logo">M</div><div><h3>Magento</h3><p>Adobe Commerce，企业级对接。</p></div></div>
+<div class="platform-card fade-in"><div class="p-logo">S4</div><div><h3>Shift4Shop</h3><p>商品目录与订单流无缝衔接。</p></div></div>
+<div class="platform-card fade-in"><div class="p-logo">O</div><div><h3>OpenCart</h3><p>轻量店铺连接器。</p></div></div>
+<div class="platform-card fade-in"><div class="p-logo">P</div><div><h3>PrestaShop</h3><p>欧洲优先，多币种支持。</p></div></div>
+<div class="platform-card fade-in"><div class="p-logo">V</div><div><h3>Volusion</h3><p>老牌平台友好同步。</p></div></div>
+<div class="platform-card fade-in"><div class="p-logo">E</div><div><h3>Ecwid</h3><p>可嵌入店铺，一键连接。</p></div></div></div></div></section><section><div class="container"><div class="section-label">自定义集成</div><h2 class="section-title">没有您的平台？<span style="color:var(--red);">我们为您开发。</span></h2><div class="feature-row" style="margin-top:32px;"><div class="feature-card fade-in"><div class="f-icon" style="background:linear-gradient(135deg,var(--red),var(--red-light));color:white;"><svg viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2"><path d="M16 4l10 4v8c0 6-4 10-10 12C10 26 6 22 6 16V8l10-4z"/><path d="M11 16l4 4 7-8"/></svg></div><h3>申请定制 API</h3><p>需要未列出的平台？我们的集成团队会为任何店铺开发专属连接器。</p></div><div class="feature-card fade-in"><div class="f-icon" style="background:linear-gradient(135deg,var(--orange),var(--orange-light));color:white;"><svg viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2"><path d="M4 16h24M16 4v24"/><circle cx="16" cy="16" r="3"/></svg></div><h3>实时同步</h3><p>库存、订单状态与物流单号随变化即时更新——无需手动导出。</p></div><div class="feature-card fade-in"><div class="f-icon" style="background:linear-gradient(135deg,var(--navy),#1A3A6F);color:white;"><svg viewBox="0 0 32 32" fill="none" stroke="white" stroke-width="2"><rect x="4" y="6" width="24" height="20" rx="2"/><path d="M4 12h24M12 6v20M20 6v20"/></svg></div><h3>统一看板</h3><p>所有渠道一屏掌控。融合精益制造与供应链最佳实践，降低差错率。</p></div></div><div class="callout fade-in"><p><strong>我们以准确性构建技术。</strong>Haulmax 看板融合精益制造与供应链最佳实践——更低差错率帮您省钱省心，让您专注销售与利润。</p></div></div></section><div class="cta-banner fade-in"><h2>数天而非数月，连接您的店铺。</h2><p>告诉我们您的平台与 SKU 数量——我们快速打通履约。</p><a href="contact-zh.html" class="btn btn-white">获取报价</a></div><footer class="footer"><div class="footer-grid"><div class="footer-col"><img src="logo.webp" alt="Haulmax" class="footer-logo-img"><p>连接全球贸易与北美市场的"最后一公里"桥梁。由电商卖家创立，为成长型企业而生。</p><p style="opacity:0.4;">10401 7th St, Rancho Cucamonga, CA 91730<br>+1 (310) 363-0588</p><div class="social-links" style="margin-top:12px;"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">X</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">YT</a><a href="#" class="social-btn">We</a></div></div><div class="footer-col"><h5>服务</h5><a href="services-import-zh.html">进口服务</a><a href="services-fulfillment-zh.html">一件代发</a><a href="services-last-mile-zh.html">尾程配送</a></div><div class="footer-col"><h5>工具与集成</h5><a href="tech-integrations-zh.html">平台对接</a><a href="tech-rate-calculator-zh.html">运费计算器</a><a href="tech-tracker-zh.html">物流追踪</a><a href="tech-dim-calculator-zh.html">体积计算器</a><a href="tech-shopify-zh.html">Shopify</a><a href="tech-woocommerce-zh.html">WooCommerce</a></div><div class="footer-col"><a href="about-zh.html" class="footer-link-main">关于我们</a><span class="footer-link-main" style="cursor:default;">资源</span><a href="resources-zh.html" class="footer-link-sub">案例研究</a><a href="resources-zh.html" class="footer-link-sub">博客</a><a href="careers-zh.html" class="footer-link-main">招聘</a><a href="contact-zh.html" class="footer-link-main">联系我们</a></div></div><div class="footer-bottom"><span>&copy; 2026 Haulmax, Inc. All rights reserved.</span><span><a href="#">隐私政策</a> &middot; <a href="#">服务条款</a></span></div></footer><script>
+window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>10)});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script></body></html>
